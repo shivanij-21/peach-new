@@ -1,0 +1,91 @@
+<app-header-top></app-header-top>
+<!-- <div class="test">
+    <app-sidebar></app-sidebar>
+</div> -->
+
+<div class="sidebar-left d-none-mobile">
+    <div class="logo-box d-none-mobile">
+        <div class="logo">
+            <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid" /></a>
+        </div>
+    </div>
+    <div class="search-box">
+        <div class="form-group">
+            <input type="text" placeholder="Search for Casino" class="form-control" [(ngModel)]="searchTerm"
+                (keyup)="search($event)" />
+            <img src="assets/img/search.svg" class="search-icon" />
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+    <app-highlights></app-highlights>
+    <div class="center-main-content">
+        <div class="news-bar d-none-desktop" style="background: none;">
+            <app-news></app-news>
+        </div>
+        <div class="upcoming-fixure d-none-desktop">
+            <div class="fixure-title">Upcoming Fixtures</div>
+            <div class="fixure-box-container">
+                <div id="carousel3" data-ride="carousel" data-interval="3000" class="carousel vert slide"></div>
+            </div>
+        </div>
+        <div class="report-container">
+            <div class="report-box casino-box">
+                <div class="casino-box-tabs">
+                    <div class="casino-tabs-menu">
+                        <a (click)="scrollLeft()" class="arrow-tabs arrow-left"><i class="fas fa-chevron-left"></i></a>
+                        <ul #tab1 class="nav nav-pills scroll">
+                            <li class="nav-item" role="presentation" *ngFor="let awc of AWClists"
+                                (click)="AWCFilter(awc)">
+                                <button class="nav-link " [ngClass]="awc == AWCFilter?'active':'null'"
+                                    id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-banner1"
+                                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                    <span class="span1">{{awc.Platform | titlecase}}</span>
+                                </button>
+                            </li>
+                        </ul>
+                        <a (click)="scrollRight()" class="arrow-tabs arrow-right"><i
+                                class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="casino-box-tabs">
+                    <div class="casino-tabs-menu">
+                        <a (click)="scrollLeft()" class="arrow-tabs arrow-left"><i class="fas fa-chevron-left"></i></a>
+                        <ul #tab1 class="nav nav-pills scroll">
+                            <li class="nav-item" *ngFor="let awc of AWClists" (click)="AWCFilter(awc)"><a
+                                    href="javascript:void(0)" class="nav-link">
+                                    <span>{{awc.Platform | titlecase}}</span></a></li>
+                        </ul>
+                        <a (click)="scrollRight()" class="arrow-tabs arrow-right"><i
+                                class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div> -->
+
+                <div class="casino-tabs d-none-desktop">
+                    <div class="casino-search" [ngClass]="status ? 'open-search' : 'close-search'">
+                        <input type="text" placeholder="Search for Casino" class="form-control"
+                            style="text-transform: lowercase" [(ngModel)]="searchTerm" (keyup)="search($event)" />
+                        <div class="search-icon" (click)="clickEvent()"><i class="fas fa-search"></i></div>
+                    </div>
+                </div>
+
+                <div class="casino-banners">
+                    <div class="casino-banner-item" *ngFor="let awc of awcGames | filter:searchKey:'GameName'"
+                        (click)="openAWC(awc.gameType,awc.platform,awc.gameCode)">
+                        <div>
+                            <img src="assets/img/awc_images/{{awc.GameCode}}.png?jpeg" alt="{{awc.GameName}}"
+                                draggable="false">
+                        </div>
+                        <div class="slot-title">
+                            <div>{{awc.GameName}}</div>
+                            <div class="btn" routerLink="/slot-game/{{awc.id}}">Play</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-s-footer></app-s-footer>
+        </div>
+    </div>
+</div>

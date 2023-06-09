@@ -1,0 +1,497 @@
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+  <header class="header header-casino">
+    <!-- <app-header-casino></app-header-casino> -->
+    <app-header></app-header>
+  </header>
+  <div class="logo-box d-none-mobile logo-casino">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+          style="position: absolute; left: 16px; top: 1px; height: 71px !important" /></a>
+    </div>
+  </div>
+  <div class="center-main-content report-container">
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+        <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+      </div>
+    </div>
+    <!-- content start  -->
+    <div class="report-box">
+      <div class="report-title">
+        <div class="report-name">Current Bets</div>
+        <div class="report-search search-box">
+          <div class="form-group mb-0">
+            <input type="text" placeholder="Search" class="form-control" />
+            <img src="assets/img/search.svg" class="search-icon" />
+          </div>
+        </div>
+      </div>
+      <div class="casino-report-tabs">
+        <ul class="nav nav-tabs">
+          <li (click)="changeSport('')" class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab"
+              aria-controls="home-tab-pane" aria-selected="true">
+              All
+            </a>
+          </li>
+          <li (click)="changeSport('0')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Exchange
+            </a>
+          </li>
+          <li (click)="changeSport('8')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Casino
+            </a>
+          </li>
+          <li (click)="changeSport('6')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Fancybet
+            </a>
+          </li>
+          <li (click)="changeSport('7')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Bookmaker
+            </a>
+          </li>
+          <li (click)="changeSport('-1')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Sportsbook
+            </a>
+          </li>
+          <li (click)="changeSport('-2')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Binary
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+          tabindex="0">
+          <div>
+            <div class="report-form">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadio" name="example" value="matchbet" class="custom-control-input" />
+                <label for="customRadio" class="custom-control-label">Matched</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadio2" name="example" value="deletebet" class="custom-control-input" />
+                <label for="customRadio2" class="custom-control-label">Unmatched</label>
+              </div>
+            </div>
+
+            <div class="report-page-count">
+              <div class="form-group mb-0">
+                <label>Show</label>
+                <select (change)="onTableSizeChange($event)" class="form-control">
+                  <option *ngFor="let size of tableSizes">{{size}}</option>
+                </select> <label>Entries</label>
+              </div>
+              <!-- <div class="bet-types-container">
+                <div class="custom-control custom-radio custom-control-inline"><input type="radio" id="soda-all"
+                    name="betType" value="all" class="custom-control-input"> <label for="soda-all"
+                    class="custom-control-label">All</label></div>
+                <div class="custom-control custom-radio custom-control-inline"><input type="radio" id="soda-back"
+                    name="betType" value="back" class="custom-control-input"> <label for="soda-back"
+                    class="custom-control-label">Back</label></div>
+                <div class="custom-control custom-radio custom-control-inline"><input type="radio" id="soda-lay"
+                    name="betType" value="lay" class="custom-control-input"> <label for="soda-lay"
+                    class="custom-control-label">Lay</label></div>
+              </div> -->
+              <!-- <div class="custom-control-inline">
+                <div>Total Bets: <span class="mr-2">0</span> Total Amount: <span>0</span></div>
+              </div> -->
+              <div class="file-icons">
+                <div><i (click)="exportPdf()" class="fas fa-file-pdf"
+                    [ngClass]="{'disabled':bets?.result != null }"></i>
+                </div>
+                <div id="export_1682517434975">
+                  <i (click)="exportExcel()" class="fas fa-file-excel"
+                    [ngClass]="{'disabled':bets?.result != null }"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-table d-none-mobile" id="table01">
+
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th class="bet-market">Market</th>
+                    <th class="bet-selection">Selection</th>
+                    <th class="bet-type">Type</th>
+                    <th class="bet-betid">Bet ID</th>
+                    <th class="bet-betplace">Bet Placed</th>
+                    <th class="bet-odds">Odds req.</th>
+                    <th class="bet-match">Matched</th>
+                    <th class="bet-avgodds">Avg. odds matched</th>
+                    <th class="bet-datematch">Date Matched</th>
+                  </tr>
+                </thead>
+                <tbody id="content">
+                  <tr id="tempTr" *ngFor="let bet of bets | paginate:{
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count}; let index = index">
+                    <td class="align-L">
+                      <label id="title">{{ bet.sportName | titlecase }}
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        <strong style="margin-left: 3px; margin-right: 4px">{{
+                          bet.eventName
+                          }}</strong>
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                        bet.betType === "yes" || bet.betType === "no"
+                        ? "Fancy Bet"
+                        : bet.marketName
+                        }}
+                      </label>
+                    </td>
+                    <td class="align-L" id="selection">{{ bet.selName }}</td>
+                    <td>
+                      <span id="type">{{
+                        bet.betType
+                        }}</span>
+                    </td>
+                    <td>
+                      <a id="betId" data-bs-toggle="modal" data-bs-target="#currentbet">{{
+                        bet.betId }}</a>
+                    </td>
+                    <td>
+                      <span id="betPlaced" class="small-date">{{
+                        bet.betTime | date : "yyyy-MM-dd HH:mm:ss"
+                        }}</span>
+                    </td>
+                    <td id="oddsReq">{{ bet.odds }}</td>
+                    <td id="matched">{{ bet.stake | number : "1.2-2" }}</td>
+                    <td id="unMatched" style="display: none">10.00</td>
+                    <td id="avgOdds">{{ bet.odds }}</td>
+                    <td>
+                      <span id="dateMatched" class="small-date">{{
+                        bet.betTime | date : "yyyy-MM-dd HH:mm:ss"
+                        }}</span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody *ngIf="bets?.length == 0">
+                  <tr class="no-record">
+                    <td colspan="9">No records found</td>
+                  </tr>
+                </tbody>
+
+              </table>
+              <ul class="pagination justify-content-center mt-2">
+                <pagination-controls (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+              </ul>
+            </div>
+
+            <div class="report-table d-none-desktop">
+              <div *ngIf="bets?.length == 0">
+                <div class="no-record">
+                  <p colspan="9">No records found</p>
+                </div>
+              </div>
+              <div class="report-row">
+                <div class="dat1" id="tempTr" *ngFor="let bet of bets | paginate:{
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count}; let index = index">
+                  <div class="dat2">
+                    <span class="bet-heading">Market</span>
+                    <span id="loginDate"><label id="title">{{ bet.sportName | titlecase }}
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        <strong style="margin-left: 3px; margin-right: 4px">{{
+                          bet.eventName
+                          }}</strong>
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                        bet.betType === "yes" || bet.betType === "no"
+                        ? "Fancy Bet"
+                        : bet.marketName
+                        }}
+                      </label></span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Selection</span>
+                    <span id="selection">{{ bet.selName }}</span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Type</span>
+                    <span id="type">
+                      {{ bet.betType }}
+                      <!-- <i class="fas fa-eye ml-2"></i> -->
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Bet ID</span>
+                    <span id="betId" style="color: #1dfa00;" data-bs-toggle="modal" data-bs-target="#currentbet">
+                      {{ bet.betId }} <i class="fas fa-plus-circle"></i>
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Bet Placed</span>
+                    <span id="betPlaced" class="small-date">
+                      {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Odds req.</span>
+                    <span id="oddsReq">
+                      {{ bet.odds }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Matched</span>
+                    <span id="matched">
+                      {{ bet.stake | number : "1.2-2" }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Avg. odds matched</span>
+                    <span id="avgOdds">
+                      {{ bet.odds }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Date Matched</span>
+                    <span id="dateMatched" class="small-date">
+                      {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <ul class="pagination justify-content-center mt-2">
+                <pagination-controls (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <div>
+            <div class="report-form">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadio" name="example" value="matchbet" class="custom-control-input" />
+                <label for="customRadio" class="custom-control-label">Matched</label>
+              </div>
+            </div>
+            <div class="report-page-count">
+              <div class="custom-control-inline">
+                <div>
+                  Total Bets: <span class="mr-2">0</span> Total Amount:
+                  <span>0</span>
+                </div>
+              </div>
+              <div class="file-icons"></div>
+            </div>
+
+
+            <div class="report-table d-none-mobile">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th class="bet-market">Market</th>
+                    <th class="bet-selection">Selection</th>
+                    <th class="bet-type">Type</th>
+                    <th class="bet-betid">Bet ID</th>
+                    <th class="bet-betplace">Bet Placed</th>
+                    <th class="bet-odds">Odds req.</th>
+                    <th class="bet-match">Matched</th>
+                    <th class="bet-avgodds">Avg. odds matched</th>
+                    <th class="bet-datematch">Date Matched</th>
+                  </tr>
+                </thead>
+                <tbody id="content">
+                  <ng-container *ngFor="let bet of bets; let index = index">
+                    <tr id="tempTr">
+                      <td class="align-L">
+                        <label id="title">{{ bet.sportName | titlecase }}
+                          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                          <strong style="margin-left: 3px; margin-right: 4px">{{
+                            bet.eventName
+                            }}</strong>
+                          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                          bet.betType === "yes" || bet.betType === "no"
+                          ? "Fancy Bet"
+                          : bet.marketName
+                          }}
+                        </label>
+                      </td>
+                      <td class="align-L" id="selection">{{ bet.selName }}</td>
+                      <td>
+                        <span id="type">{{
+                          bet.betType
+                          }}</span>
+                      </td>
+                      <td>
+                        <a id="betId" data-bs-toggle="modal" data-bs-target="#currentbet">{{
+                          bet.betId }}</a>
+                      </td>
+                      <td>
+                        <span id="betPlaced" class="small-date">{{
+                          bet.betTime | date : "yyyy-MM-dd HH:mm:ss"
+                          }}</span>
+                      </td>
+                      <td id="oddsReq">{{ bet.odds }}</td>
+                      <td id="matched">{{ bet.stake | number : "1.2-2" }}</td>
+                      <td id="unMatched" style="display: none">10.00</td>
+                      <td id="avgOdds">{{ bet.odds }}</td>
+                      <td>
+                        <span id="dateMatched" class="small-date">{{
+                          bet.betTime | date : "yyyy-MM-dd HH:mm:ss"
+                          }}</span>
+                      </td>
+                    </tr>
+
+
+                  </ng-container>
+                </tbody>
+                <tbody *ngIf="bets?.length == 0">
+                  <tr class="no-record">
+                    <td colspan="9">No records found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="report-table d-none-desktop">
+
+              <div>
+                <div class="no-record">
+                  <p colspan="9">No records found</p>
+                </div>
+              </div>
+              <div class="report-row">
+                <div class="dat1" id="tempTr" *ngFor="let bet of bets; let index = index">
+                  <div class="dat2">
+                    <span class="bet-heading">Market</span>
+                    <span id="loginDate"><label id="title">{{ bet.sportName | titlecase }}
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                        <strong style="margin-left: 3px; margin-right: 4px">{{
+                          bet.eventName
+                          }}</strong>
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                        bet.betType === "yes" || bet.betType === "no"
+                        ? "Fancy Bet"
+                        : bet.marketName
+                        }}
+                      </label></span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Selection</span>
+                    <span id="selection">{{ bet.selName }}</span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Type</span>
+                    <span id="type">
+                      {{ bet.betType }}
+                      <!-- <i class="fas fa-eye ml-2"></i> -->
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Bet ID</span>
+                    <span id="betId" data-bs-toggle="modal" data-bs-target="#currentbet" style="color: blue;">
+                      {{ bet.betId }} 
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Bet Placed</span>
+                    <span id="betPlaced" class="small-date">
+                      {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Odds req.</span>
+                    <span id="oddsReq">
+                      {{ bet.odds }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Matched</span>
+                    <span id="matched">
+                      {{ bet.stake | number : "1.2-2" }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Avg. odds matched</span>
+                    <span id="avgOdds">
+                      {{ bet.odds }}
+                    </span>
+                  </div>
+                  <div class="dat2">
+                    <span class="bet-heading">Date Matched</span>
+                    <span id="dateMatched" class="small-date">
+                      {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content end  -->
+  </div>
+  <!-- footer start -->
+  <app-s-footer></app-s-footer>
+  <!-- footer end -->
+</div>
+
+<!-- pop up -->
+<ng-container *ngFor="let bet of bets; let index = index">
+  <div class="modal fade" id="currentbet" tabindex="-1" role="dialog" aria-labelledby="currentbetLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="currentbetLabel">Current Bet Data</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead style="background: none;">
+              <tr style="border-bottom: 1px solid #3c444b">
+                <th scope="col">Bet Taken</th>
+                <th scope="col">Odds req.</th>
+                <th scope="col">Stake</th>
+                <th scope="col">Liability</th>
+                <th scope="col">Odds matched</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{bet.betTime | date: 'yyyy-MM-dd HH:mm'}}</th>
+                <td>{{bet.odds}}</td>
+                <td>{{bet.stake | number:'1.2-2'}}</td>
+                <td>{{bet.liability | number:'1.2-2'}}</td>
+                <td>{{bet.odds}}</td>
+              </tr>
+             
+            </tbody>
+          </table>
+
+        
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,27 @@
+.login-btn{
+    background-color: #03b37f;
+}
+.btn-close img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: 0 0;
+    padding: 5px;
+    border: 2px solid red;
+}
+.l-btn{
+    color: white;
+    font-weight: 600;
+    height: 56px;
+}
+small{
+    font-size:84%;
+}
+
+/* @media only screen and (min-width: 1280px)
+{
+.d-none-desktop
+{
+display: block !important;
+}
+} */

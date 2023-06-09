@@ -1,0 +1,12 @@
+<div class="loader" *ngIf="loader" style="color: #000">
+    <img src="./assets/img/loader.gif" alt=""/>
+</div>
+<app-header></app-header>
+<ng-container *ngIf="!isLogin">
+<app-marquee ></app-marquee>
+<app-carousel-banner ></app-carousel-banner>
+<app-live-casino ></app-live-casino>
+<app-winner ></app-winner>
+<app-footer ></app-footer>
+</ng-container>
+<app-sports *ngIf="isLogin"></app-sports>

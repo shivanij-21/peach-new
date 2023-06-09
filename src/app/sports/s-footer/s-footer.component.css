@@ -1,0 +1,25 @@
+.modal-18plus {
+    color: #aaafb5;
+}
+.modal-header {
+    border: 0;
+    border-radius: 0;
+    background-color: #3c444b;
+    padding: 1px 8px !important;
+}
+.modal-18plus{
+    font-size: 14px;
+}
+.modal-body{
+    background: #2e3439;
+}
+
+.modal-footer {
+    justify-content: space-between;
+    border: 0;
+    background-color: var(--bg-table-header);
+    padding: 8px;
+}
+.rule-title{
+    display: block !important;
+}

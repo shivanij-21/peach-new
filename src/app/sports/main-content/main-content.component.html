@@ -1,0 +1,548 @@
+<!-- sidebar  -->
+
+<div class="test">
+  <app-sidebar></app-sidebar>
+</div>
+<!-- sidebar end  -->
+
+<!-- main content start  -->
+<div class="main-container">
+  <!-- <app-highlights></app-highlights> -->
+  <!-- testing -->
+  <!-- <app-header></app-header> -->
+  <!-- testing -->
+  <!-- <div class="header">
+        upcoming feature
+        <app-upcoming-feature></app-upcoming-feature>
+    </div> -->
+
+  <div class="center-main-content">
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+        <div id="carousel3" data-ride="carousel" data-interval="3000" class="carousel vert slide"></div>
+      </div>
+    </div>
+    <div class="center-container">
+      <div class="home-container">
+        <div class="new-event">
+          <ng-container *ngFor="let sport of sportList;trackBy:trackBySport; let index = index">
+            <ng-container *ngIf="sport.eventTypeId==4">
+              <ng-container *ngFor="let match of sport.matches">
+                <div class="new-event-item sport{{sport.eventTypeId}}" *ngIf="match.isInPlay==1 && index < 4">
+                  <a class="" [routerLink]="['/fullmarkets',match.eventId]"><i
+                      class="d-icon icon-{{sport.eventTypeId}}"></i>
+                    <span class="ml-2" style="color: rgb(248, 249, 250)">{{match.eventName}}
+                    </span>
+                  </a>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="d-none-desktop banner-toggle collapsed" (click)="toggleId()" *ngIf="showactivitybtn"><i
+            class="fas fa-arrow-down"></i>
+          Current Activities
+        </div>
+
+        <!-- banner start  -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" *ngIf="showId">
+          <div class="carousel-inner">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+              <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                <img src="{{ slide.img }}" alt="" width="100%">
+              </div>
+            </ngx-slick-carousel>
+          </div>
+        </div>
+        <!-- banner end  -->
+        
+        <div class="sport-tabs menu-tabs d-none-desktop">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a routerLink="/sport" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+                Exchange
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/casino" class="nav-link"> Live Casino </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/slot" class="nav-link"> Slot </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/awc" class="nav-link"> AWC </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a routerLink="/Fantasy" class="nav-link"> Fantasy Games </a>
+            </li> -->
+            <li class="nav-item">
+              <a routerLink="/pokercasino" class="nav-link"> Poker </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- my tabs code start -->
+
+        <div class="sport-tabs" role="tablist">
+          <a (click)="scrollLeft()" class="arrow-tabs arrow-left">
+            <img src="assets/img/arrow-down.svg" />
+          </a>
+          <ul #widgetsContent id="home_sports_list" class="nav nav-tabs">
+            <ng-container *ngFor="
+                let sport of sportList;
+                trackBy: trackBySport;
+                let index = index
+              ">
+              <li class="nav-item">
+                <a id="nav-home-tab" class="nav-link sport{{ sport.eventTypeId }}"
+                  [ngClass]="{ 'active show': index == 0 }" data-bs-toggle="tab" href="#game{{ sport.eventTypeId }}"
+                  role="tab" aria-controls="nav-home" aria-selected="true">
+                  <i class="d-icon icon-{{ sport.eventTypeId }}"></i><span>{{ sport.sportsName | titlecase }}</span>
+                </a>
+              </li>
+            </ng-container>
+            <li class="nav-item" (click)="opentab(7)">
+              <a data-bs-toggle="tab" href="#horse" id="activeTabHome" class="nav-link sport10">
+                <i class="d-icon icon-10"></i>
+                <span>Horse Racing</span></a>
+            </li>
+
+            <li class="nav-item" (click)="opentab(4339)">
+              <a class="nav-link sport65" id="activeTabHome" data-bs-toggle="tab" href="#horserace">
+                <i class="d-icon icon-65"></i><span>GreyHound Racing</span></a>
+            </li>
+          </ul>
+          <a (click)="scrollRight()" class="arrow-tabs arrow-right"><img src="assets/img/arrow-down.svg" /></a>
+        </div>
+
+
+        <div class="tab-content" id="nav-tabContent">
+
+          <!-- loader start -->
+          <div id="loadingMsg" *ngIf="!sportList" class="loading-bet">
+            <span class="load-center">
+              <div class="ripple"></div>
+            </span>
+          </div>
+          <!-- loader end -->
+          <!-- </div> -->
+          <ng-container *ngFor="
+              let sport of sportList;
+              trackBy: trackBySport;
+              let index = index
+            ">
+            <div class="tab-pane fade show" [ngClass]="{ 'active show': index == 0 }" id="game{{ sport.eventTypeId }}"
+              role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+              <!-- cricket table  -->
+              <div class="bet-table">
+                <div class="bet-table-header sport{{ sport.eventTypeId }}">
+                  <div class="game-title">
+                    <i class="d-icon icon-{{ sport.eventTypeId }}"></i>
+                    <span>{{ sport.sportsName | titlecase }}</span>
+                  </div>
+                  <div class="point-title d-none-mobile">1</div>
+                  <div class="point-title d-none-mobile">X</div>
+                  <div class="point-title d-none-mobile">2</div>
+                </div>
+                <!-- <ng-container *ngFor="let sport of sportList;trackBy:trackBySport; let index = index"> -->
+                <ng-container *ngFor="
+                    let match of sport.matches | sortByDate : 'time';
+                    trackBy: trackByEvent
+                  ">
+                  <div class="bet-table-body">
+                    <div class="bet-table-box">
+                      <div class="bet-table-row-header-mobile d-none-desktop">
+                        <div class="game-title">
+                          <div class="game-date inplay" *ngIf="match.inplay">
+                            <span>Live</span>
+                          </div>
+                          <div class="game-date" *ngIf="!match.inplay">
+                            <p class="day text-left">
+                              <!-- Today -->
+                              <ng-container *ngIf="siteName == 'mash247' && match.inplay">
+                                <ng-container *ngIf="match.todayTomorrow == 0">
+                                  {{ match.time | date : "HH:mm" }}
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow == 1">
+                                  Tomorrow
+                                  {{ match.time | date : "HH:mm" }}
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow > 1">
+                                  {{ match.time | date : "yyyy-MM-dd HH:mm" }}
+                                </ng-container>
+                              </ng-container>
+                              <ng-container *ngIf="!match.inplay">
+                                <ng-container *ngIf="match.todayTomorrow == 0">
+                                  Today
+                                  <!-- {{ match.time | date : "HH:mm" }} -->
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow == 1">
+                                  Tomorrow
+                                  <!-- {{ match.time | date : "HH:mm" }} -->
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow > 1">
+                                  {{ match.time | date : "dd MMM" }}
+                                </ng-container>
+                              </ng-container>
+                            </p>
+                            <p class="mb-0 day text-left">
+                              {{ match.time | date : "HH:mm" }}
+                            </p>
+                          </div>
+                          <div class="game-name d-inline-block">
+                            <a class="" [routerLink]="['/fullmarkets', match.eventId]">
+                              <p class="team-name text-left">
+                                {{ match.eventName }}
+                              </p>
+                              <p class="team-name text-left team-event">
+                                {{ match.home }}
+                              </p>
+                            </a>
+                            <div class="game-icons">
+                              <div class="game-icon">
+                                <span class="f-bm-icon" *ngIf="match.isFancy">F</span>
+                              </div>
+                              <div class="game-icon" *ngIf="match.isBm">
+                                <span class="f-bm-icon">BM</span>
+                              </div>
+                              <div class="game-icon" *ngIf="match.isStream">
+                                <i class="icon-tv d-icon"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bet-table-row">
+                        <div class="game-title d-none-mobile">
+                          <div class="game-date inplay" *ngIf="match.inplay">
+                            <span>Live</span>
+                          </div>
+                          <div class="game-date" *ngIf="!match.inplay">
+                            <p class="day text-left">
+                              <!-- Today -->
+                              <ng-container *ngIf="match.inplay">
+                                <ng-container *ngIf="match.todayTomorrow == 0">
+                                  Today
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow == 1">
+                                  Tomorrow {{ match.time | date : "HH:mm" }}
+                                </ng-container>
+                              </ng-container>
+                              <ng-container *ngIf="!match.inplay">
+                                <ng-container *ngIf="match.todayTomorrow == 0">
+                                  Today
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow == 1">
+                                  Tomorrow
+                                </ng-container>
+                                <ng-container *ngIf="match.todayTomorrow > 1">
+                                  {{ match.time | date : "dd MMM" }}
+                                </ng-container>
+                              </ng-container>
+                            </p>
+                            <p class="mb-0 day text-left">
+                              {{ match.time | date : "HH:mm" }}
+                            </p>
+                          </div>
+                          <div class="game-name d-inline-block">
+                            <a class="" [routerLink]="['/fullmarkets', match.eventId]">
+                              <p class="team-name text-left">
+                                {{ match.eventName }}
+                              </p>
+                              <p class="team-name text-left team-event">
+                                {{ match.home }}
+                              </p>
+                            </a>
+                          </div>
+                          <div class="game-icons">
+                            <div class="game-icon">
+                              <span class="f-bm-icon" *ngIf="match.isFancy">F</span>
+                            </div>
+                            <div class="game-icon" *ngIf="match.isBm">
+                              <span class="f-bm-icon">BM</span>
+                            </div>
+                            <div class="game-icon" *ngIf="match.isStream">
+                              <i class="icon-tv d-icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="point-title" [ngClass]="{'suspended':!match.isBettable}">
+                          <div class="text-center d-none-desktop point-title-header">
+                            1
+                          </div>
+                          <div class="back bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[0]?.backPrice:"--"}}</span>
+                          </div>
+                          <div class="lay bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[0]?.layPrice:"--"}}</span>
+                          </div>
+                        </div>
+                        <div class="point-title" [ngClass]="{'suspended':!match.isBettable}">
+                          <div class="text-center d-none-desktop point-title-header">
+                            X
+                          </div>
+                          <div class="back bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[2]?.backPrice:"--"}}</span>
+                          </div>
+                          <div class="lay bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[2]?.layPrice:"--"}}</span>
+                          </div>
+                        </div>
+                        <div class="point-title" [ngClass]="{'suspended':!match.isBettable}">
+                          <div class="text-center d-none-desktop point-title-header">
+                            2
+                          </div>
+                          <div class="back bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[1]?.backPrice:"--"}}</span>
+                          </div>
+                          <div class="lay bl-box">
+                            <span class="d-block odds">{{match?.runners ?
+                              match?.runners[1]?.layPrice:"--"}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+                <!-- </ng-container> -->
+              </div>
+            </div>
+          </ng-container>
+          <!-- cricket table end  -->
+
+
+          <div class="tab-pane fade" id="horserace" role="tabpanel" aria-labelledby="cricket-tab" tabindex="0">
+            <!-- GreyHound Racing start -->
+            <div class="bet-table">
+              <div class="bet-table-header sport8">
+                <div class="game-title">
+                  <img class="icon-dog" src="assets\img\transparent1.gif" />
+                  <span>GreyHound Racing</span>
+                </div>
+              </div>
+              <div class="horse-tab greyhound race10">
+                <ul class="nav nav-pills">
+                  <ng-container *ngFor="let country of todayRaces ; let index= index">
+                    <li class="nav-item active sport8">
+                      <a data-bs-toggle="tab" [ngClass]="{ 'active show': index == 0 }"
+                        href="#tab1_{{ country.countryCode }}" class="nav-link">
+                        {{ country.countryCode }}
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <div class="tab-content" id="myTabContent">
+                <ng-container *ngFor="let country of todayRaces ; let index= index">
+                  <div class="tab-pane fade show active horse-table" [ngClass]="{ 'active show': index == 0 }"
+                    id="tab1_{{ country.countryCode }}">
+                    <div class="bet-table-body">
+                      <ng-container *ngFor="let venue of country.venueVo">
+                        <div class="bet-table-box">
+                          <div class="bet-table-row-header-mobile d-none-desktop">
+                            <div class="game-title">
+                              <div class="game-name d-inline-block">
+                                <div class="game-icons">
+                                  <div class="game-icon tv-icon">
+                                    <i class="icon-tv d-icon"></i>
+                                  </div>
+                                </div>
+                                <p class="team-name text-left">
+                                  {{ venue.venue }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bet-table-row">
+                            <div class="game-title d-none-mobile">
+                              <div class="game-icons">
+                                <div class="game-icon tv-icon">
+                                  <i class="icon-tv d-icon"></i>
+                                </div>
+                              </div>
+                              <div class="game-name d-inline-block">
+                                <p class="team-name text-left">
+                                  {{ venue.venue }}
+                                </p>
+                              </div>
+                            </div>
+                            <div class="horse-time-detail">
+                              <ng-container *ngFor="let race of venue.races">
+                                <a [routerLink]="['/fullmarkets',race.eventId,race.marketId,race.port]"><span
+                                    class="">{{
+                                    race.startTime | date : "HH:mm"
+                                    }}</span></a>
+                              </ng-container>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <!-- GreyHound Racing end  -->
+          </div>
+
+
+          <div class="tab-pane fade" id="horse" role="tabpanel" aria-labelledby="cricket-tab" tabindex="0">
+            <!-- horse racing start -->
+            <div class="bet-table">
+              <div class="bet-table-header sport10">
+                <div class="game-title">
+                  <i class="d-icon icon-10"></i>
+                  <span>Horse Racing</span>
+                </div>
+              </div>
+              <div class="horse-tab race10">
+                <ul class="nav nav-pills">
+                  <ng-container *ngFor="let country of todayRaces ; let index= index">
+                    <li class="nav-item">
+                      <a data-bs-toggle="tab" [ngClass]="{ 'active show': index == 0 }"
+                        href="#tab_{{ country.countryCode }}" class="nav-link">
+                        {{ country.countryCode }}
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <div class="tab-content" id="myTabContent">
+                <ng-container *ngFor="let country of todayRaces  ; let index= index">
+                  <div class="tab-pane fade show active horse-table" [ngClass]="{ 'active show': index == 0 }"
+                    id="tab_{{ country.countryCode }}">
+                    <div class="bet-table-body">
+                      <ng-container *ngFor="let venue of country.venueVo">
+                        <div class="bet-table-box">
+                          <div class="bet-table-row-header-mobile d-none-desktop">
+                            <div class="game-title">
+                              <div class="game-name d-inline-block">
+                                <div class="game-icons">
+                                  <div class="game-icon tv-icon">
+                                    <i class="icon-tv d-icon"></i>
+                                  </div>
+                                </div>
+                                <p class="team-name text-left">
+                                  {{ venue.venue }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bet-table-row">
+                            <div class="game-title d-none-mobile">
+                              <div class="game-icons">
+                                <div class="game-icon tv-icon">
+                                  <i class="icon-tv d-icon"></i>
+                                </div>
+                              </div>
+                              <div class="game-name d-inline-block">
+                                <p class="team-name text-left">
+                                  {{ venue.venue }}
+                                </p>
+                              </div>
+                            </div>
+                            <div class="horse-time-detail">
+                              <ng-container *ngFor="let race of venue.races">
+                                <a [routerLink]="['/fullmarkets',race.eventId,race.marketId,race.port]"><span
+                                    class="">{{
+                                    race.startTime | date : "HH:mm"
+                                    }}</span></a>
+                              </ng-container>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <!-- horse racing end  -->
+          </div>
+        </div>
+
+
+        <!-- my tabs code end  -->
+
+        <div class="home-casiono-icons d-none-desktop container-fluid">
+          <a routerLink="/casino" class="w-100">
+            <h4><span>Our Casino</span></h4>
+          </a>
+          <div class="w-100">
+            <section tabindex="0" class="hooper is-horizontal">
+              <!-- <div class="hooper-list"> -->
+
+              <ngu-carousel class="hooper-list" #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems"
+                (carouselLoad)="carouselTileLoad($event)">
+                <!-- <div *nguCarouselDef="let item;"> -->
+                <ul class="hooper-track" *nguCarouselDef="let item">
+                  <ng-container *ngFor="let casino of casinoListlist?.result">
+                    <li aria-hidden="true" class="hooper-slide" *ngFor="let table of casino?.tables">
+                      <a [routerLink]="['/tp',table.tableId,table.tableName,table.oddsUrl?.replace('/d_rate/','')]"
+                        class="">
+                        <div class="carousal-63"
+                          style="background-image: url(&quot;assets/img/Casino/{{table.tableName}}.jpg&quot;); width:{{getScreenWidth}}px">
+                        </div>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+                <!-- </div> -->
+              </ngu-carousel>
+
+              <!-- <div aria-live="polite" aria-atomic="true" class="hooper-liveregion hooper-sr-only">Item 12 of
+                      16</div> -->
+              <!-- </div> -->
+            </section>
+          </div>
+        </div>
+        <div class="home-casiono-icons d-none-desktop container-fluid">
+          <h4><span>New Games</span></h4>
+          <div class="w-100">
+            <section tabindex="0" class="hooper is-horizontal">
+              <!-- <div class="hooper-list"> -->
+
+              <ngu-carousel class="hooper-list" #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems"
+                (carouselLoad)="carouselTileLoad($event)">
+                <!-- <div *nguCarouselDef="let item;"> -->
+                <ul class="hooper-track" *nguCarouselDef="let item">
+                  <ng-container *ngFor="let casino of casinoListlist?.result">
+                    <li aria-hidden="true" class="hooper-slide" *ngFor="let table of casino?.tables">
+                      <a [routerLink]="['/tp',table.tableId,table.tableName,table.oddsUrl?.replace('/d_rate/','')]"
+                        class="">
+                        <div class="carousal-63"
+                          style="background-image: url(&quot;assets/img/Casino/{{table.tableName}}.jpg&quot;); width:{{getScreenWidth}}px">
+                        </div>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+                <!-- </div> -->
+              </ngu-carousel>
+
+              <!-- <div aria-live="polite" aria-atomic="true" class="hooper-liveregion hooper-sr-only">Item 12 of
+                      16</div> -->
+              <!-- </div> -->
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer start  -->
+      <app-s-footer></app-s-footer>
+      <!-- footer end  -->
+    </div>
+    <!-- right side bar start  -->
+    <app-right-sidebar></app-right-sidebar>
+    <!-- right sidebar end  -->
+  </div>
+</div>

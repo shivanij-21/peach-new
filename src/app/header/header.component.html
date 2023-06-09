@@ -1,0 +1,164 @@
+<!-- logout header -->
+<ng-container *ngIf="!isLogin">
+    <ng-container *ngIf="isnotopen">
+        <div class="home-new-header container-fluid container-fluid-5">
+            <div class="row row5">
+                <div class="col-6 col-md-2">
+                    <div class="home-new-logo"><img src="assets/img/logo-cricbuzzer.png">
+                    </div>
+                </div>
+                <div class="col-6 col-md-10">
+                    <div class="home-new-header-bottom">
+                        <nav class="navbar navbar-expand-sm justify-content-center"></nav>
+                        <div this.containerView="header-casino" this.containerView="header-casino">
+                            <button (click)="openLoginForm()" class="btn  ml-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<!-- login header -->
+<app-highlights *ngIf="isLogin"></app-highlights>
+
+<!-- <ng-container *ngIf="isopen">
+    <header class="header">
+        <app-highlights></app-highlights>
+    </header>
+</ng-container> -->
+
+<ng-container *ngIf="isopen1">
+    <div class="header header-casino ">
+        <a routerLink="/sports">
+            <div class="d-none-desktop d-inline-block top-home-icon"><i class="fas fa-home"></i></div>
+        </a>
+        <div tabindex="-1" class="b-sidebar-outer">
+            <div id="sidebar-border" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true"
+                class="b-sidebar shadow bg-light text-dark d-none-desktop" style="width: 80%; display: none;">
+                <div class="b-sidebar-body">
+                    <div id="sidebar-left-mo" class="sidebar-left">
+                        <div class="menu-scrolable">
+                            <div class="search-box">
+                                <div class="form-group d-inline-block mb-0"><input type="text" placeholder="Search"
+                                        autocomplete="off" class="form-control" style="text-transform: lowercase;"> <img
+                                        src="assets/img/search.svg"
+                                        class="search-icon">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-sidebar-backdrop bg-dark" style="display: none;"></div>
+        </div>
+        <!-- <div class="logo-box d-none-desktop"><a [routerLink]="['/sports']">
+                <div class="logo"><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"></div>
+            </a>
+        </div> -->
+
+        <!-- highlights  -->
+
+        <app-highlights></app-highlights>
+        <!-- highlights  -->
+
+
+
+    </div>
+</ng-container>
+
+
+
+<!-- Modal -->
+<div style="display: none !important;" class="modal fade modal-login-new" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div aria-label="Close" class="close-login-modal">
+                    <h5>Login</h5>
+                    <img data-bs-dismiss="modal" aria-label="Close"
+                        src="assets/img/close.svg">
+                </div>
+            </div>
+
+            <div id="login___BV_modal_body_" class="modal-body">
+                <form [formGroup]="Loginform" autocomplete="off" class="login-form mt-0" (ngSubmit)="Login()">
+                    <div class="form-group"><label class="user-email-text">Username</label>
+                        <input type="text" name="username" placeholder="Enter Username" formControlName="username"
+                            class="form-control">
+                        <span class="error" *ngIf="username?.errors?.['required'] && f?.['username']?.touched">
+                            <span>
+                                The User Name field is required
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <div class="form-group"><label class="user-email-text">Password</label>
+                        <input type="password" name="password" placeholder="Enter Password" formControlName="password"
+                            class="form-control">
+                        <span class="error" *ngIf="password?.errors?.['required'] && f?.['password']?.touched">
+                            <span>
+                                The Password field is required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox d-inline-block">
+                            <input type="checkbox" id="customCheck" name="example1" class="custom-control-input" checked>
+                            <label for="customCheck" class="custom-control-label">I am at least
+                                <a href="javascript:void(0)" class="text-danger" role="button" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal2">18 years</a>
+                                of age and I have read, accept and agree to the
+
+                                <a routerLink="/terms-and-condition" class="" target="_blank">Terms and Conditions </a>,
+                                <a routerLink="/responsible-gaming" class="" target="_blank">Responsible Gaming </a>,
+
+                                <a href="https://www.gamcare.org.uk/" target="_blank">GamCare</a>,
+                                <a href="https://www.gamblingtherapy.org/en" target="_blank">Gambling
+                                    Therapy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-1">
+                        <button type="submit" (ngSubmit)="Login()" class="btn l-btn login-btn btn-block"
+                            [disabled]="Loginform.invalid">
+                            Login
+                        </button>
+                    </div>
+                    <small class="recaptchaTerms">This site is protected by
+                        reCAPTCHA and the Google
+                        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </small>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- pts modal  -->
+<!-- <div class="modal fade" id="ptsmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" aria-label="Close" class="close" data-bs-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                There are no markets data!
+            </div>
+
+        </div>
+    </div>
+</div> -->
+<!-- pts modal end -->

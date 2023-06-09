@@ -1,0 +1,381 @@
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+  <header class="header header-casino">
+    <!-- <app-header-casino></app-header-casino> -->
+    <app-header></app-header>
+  </header>
+  <div class="logo-box d-none-mobile logo-casino">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+          style="position: absolute; left: 16px; top: 1px; height: 71px" /></a>
+    </div>
+  </div>
+
+  <div class="center-main-content report-container" >
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+          <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+      </div>
+    </div>
+    <div class="report-box live-bets-report w-100">
+      
+
+      <div class="report-title">
+        <div class="report-name">Bet History</div>
+        <div class="report-search search-box">
+          <div class="form-group mb-0">
+            <input type="text" placeholder="Search" class="form-control" />
+            <img src="assets/img/search.svg" class="search-icon" />
+          </div>
+        </div>
+      </div>
+
+      <div class="casino-report-tabs">
+        <ul class="nav nav-tabs">
+          <li (click)="changeSport('')" class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab"
+              aria-controls="home-tab-pane" aria-selected="true">
+              All
+            </a>
+          </li>
+          <li (click)="changeSport('0')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Exchange
+            </a>
+          </li>
+          <li (click)="changeSport('8')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Casino
+            </a>
+          </li>
+          <li (click)="changeSport('6')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Fancybet
+            </a>
+          </li>
+          <li (click)="changeSport('7')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Bookmaker
+            </a>
+          </li>
+          <li (click)="changeSport('-1')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Sportsbook
+            </a>
+          </li>
+          <li (click)="changeSport('-2')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab"
+              aria-controls="profile-tab-pane" aria-selected="false">
+              Binary
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="report-form">
+        <div class="form-group">
+          <label>Select Report Type</label>
+          <select class="form-control">
+            <option value="">Select Type</option>
+            <option value="results">Settled</option>
+            <option value="currentbets">Voided</option>
+          </select>
+        </div>
+        <div class="form-group from-date">
+          <label>From</label>
+          <div class="mx-datepicker">
+            <div class="mx-input-wrapper">
+              <input id="date1" name="date" id="startDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                bsDatepicker [(ngModel)]="selectfromdate" [minDate]="month" [maxDate]="selectfromdate" [bsConfig]="{
+                  dateInputFormat: 'DD-MM-YYYY',
+                  containerClass: 'theme-default',
+                  isAnimated: true
+                }" class="mx-input" /><i class="mx-icon-clear">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1em" height="1em">
+                  <path
+                    d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                  </path>
+                </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                  width="1em" height="1em">
+                  <path
+                    d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                  </path>
+                </svg></i>
+            </div>
+          </div>
+        </div>
+        <div class="form-group to-date">
+          <label>To</label>
+          <div class="mx-datepicker">
+            <div class="mx-input-wrapper">
+              <input id="fiscalYear" name="date" id="endDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                bsDatepicker [(ngModel)]="selecttodate" [minDate]="month" [maxDate]="selecttodate" [bsConfig]="{
+                  dateInputFormat: 'DD-MM-YYYY',
+                  containerClass: 'theme-default',
+                  isAnimated: true
+                }" class="mx-input" /><i class="mx-icon-clear"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1024 1024" width="1em" height="1em">
+                  <path
+                    d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                  </path>
+                </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                  width="1em" height="1em">
+                  <path
+                    d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                  </path>
+                </svg></i>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="GetBetHistory()">
+          Submit
+        </button>
+      </div>
+      <div class="report-page-count">
+        <div class="form-group mb-0">
+          <label>Show</label>
+          <select (change)="onTableSizeChange($event)" class="form-control">
+            <option *ngFor="let size of tableSizes">{{size}}</option>
+          </select>
+          <label>Entries</label>
+        </div>
+        <div class="file-icons">
+          <div >
+            <i (click)="exportPdf()" class="fas fa-file-pdf "  [ngClass]="{'disabled':bets.length ==0  }"></i>
+          </div>
+          <div id="export_1682431268351">
+            <i (click)="exportExcel()" class="fas fa-file-excel"  [ngClass]="{'disabled':bets.length ==0 }"></i>
+          </div>
+        </div>
+      </div>
+      <div class="report-page-count"></div>
+      <div class="report-table d-none-mobile" id="table01">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="bet-betid1">
+                <div>Bet ID</div>
+              </th>
+              <th class="bet-market">
+                <div>Market</div>
+              </th>
+              <th class="bet-selection">
+                <div>Selection</div>
+              </th>
+              <th class="bet-Type">
+                <div>Type</div>
+              </th>
+              <th class="bet-betplaced">
+                <div>Bet Placed</div>
+              </th>
+              <th class="bet-oddsreq">
+                <div>Odds req.</div>
+              </th>
+              <th class="bet-stake">
+                <div>Stake</div>
+              </th>
+              <th class="bet-Avgodds">
+                <div>Avg. odds matched</div>
+              </th>
+              <th class="bet-profit">
+                <div>Profit/Loss</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="content">
+            <tr id="tempTr" *ngFor="let bet of bets | paginate:{
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count}; let index = index">
+              <td class="align-L">
+                <a id="betID" href="javascript: void(0);" data-bs-toggle="modal" data-bs-target="#datadrop"
+                  style="white-space: nowrap" (click)="
+                    betId == bet.betId ? toggleTx(null) : toggleTx(bet.betId)
+                  ">{{ bet.betId }}</a>
+              </td>
+              <td class="align-L" id="siteName" style="display: none">
+                {{ Update?.skyexchange }}
+              </td>
+              <td id="matchTitle" class="align-L">
+                {{ bet.sportName }}
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <strong style="margin-left: 4px; margin-right: 3px">{{
+                  bet.eventName
+                  }}</strong>
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                bet.betType == "yes" || bet.betType == "no"
+                ? "FancyBet"
+                : bet.marketName
+                }}
+              </td>
+              <td id="matchSelection">{{ bet.selName }}</td>
+              <td>
+                <span id="matchType">{{ bet.betType }}</span>
+              </td>
+              <td>
+                <span id="betPlaced" class="small-date">{{
+                  bet.betTime | date : "yyyy-MM-dd HH:mm:ss"
+                  }}</span>
+              </td>
+              <td id="matchOddsReq">{{ bet.odds }}</td>
+              <td id="matchStake">{{ bet.stake | number : "1.2-2" }}</td>
+              <td id="matchAvgOdds">{{ bet.odds }}</td>
+              <td *ngIf="this.betstatus == '1'">
+                <span id="pol" class="small-date" [ngClass]="{ win: bet.PL > 0, lose: bet.PL < 0 }">{{ bet.PL | number :
+                  "1.2-2" }}</span>
+              </td>
+              <td *ngIf="this.betstatus == '3' || this.betstatus == '2'">
+                <span id="pol" class="small-date lose">0.00</span>
+              </td>
+
+              <td id="userCancel" style="display: none"></td>
+            </tr>
+
+            <!-- pop up -->
+            <ng-container *ngFor="let bet of bets; let index = index">
+              <div class="modal fade" id="datadrop" tabindex="-1" role="dialog" aria-labelledby="datadropLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="datadropLabel">
+                        Bet History Data
+                      </h5>
+
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <tr style="border-bottom: 1px solid #3c444b">
+                        <th class="bettaken">Bet taken</th>
+                        <th width="24%">Odds req.</th>
+                        <th width="17%">Stake</th>
+                        <th width="17%">Liability</th>
+                        <th width="17%">Odds matched</th>
+                      </tr>
+
+                      <tr id="txRow0" style="display: table-row" class="even">
+                        <td><span id="betTaken" class="small-date">{{
+                            bet.betTime | date : "yyyy-MM-dd HH:mm"
+                            }}</span></td>
+                        <td id="txOddsReq">{{ bet.odds }}</td>
+                        <td id="txStake">{{ bet.stake | number : "1.2-2" }}</td>
+                        <td id="txLiability"><span class="red">{{
+                            bet.liability | number : "1.2-2"
+                            }}</span></td>
+                        <td id="txOddsMatched">{{ bet.odds }}</td>
+                      </tr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </tbody>
+          <tbody *ngIf="bets.length == 0"><tr class="no-record"><td colspan="9">No records found</td></tr></tbody>
+        </table>
+        <ul class="pagination justify-content-center mt-2" *ngIf="bets.length >= 1 ">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+
+      <div class="report-table d-none-desktop">
+        <div *ngIf="bets.length == 0"><div class="no-record"><p colspan="9">No records found</p></div></div>
+
+        <div class="report-row">
+          <div class="dat1" id="tempTr" *ngFor="let bet of bets | paginate:{
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count}; let index = index">
+            <div class="dat2">
+              <span class="bet-heading">Bet ID</span>
+              <span id="betID" style="color: blue" data-bs-toggle="modal" data-bs-target="#datadrop" (click)="
+                  betId == bet.betId ? toggleTx(null) : toggleTx(bet.betId)
+                ">{{ bet.betId }}</span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Market</span>
+              <span id="matchTitle">{{ bet.sportName }}
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <strong>{{ bet.eventName }}</strong>
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>{{
+                bet.betType == "yes" || bet.betType == "no"
+                ? "FancyBet"
+                : bet.marketName
+                }}</span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Selection</span>
+              <span id="matchSelection">
+                {{ bet.selName }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Type</span>
+              <span id="matchType">
+                {{ bet.betType }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Bet Placed</span>
+              <span id="betPlaced" class="small-date">
+                {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Odds req.</span>
+              <span id="matchOddsReq">
+                {{ bet.odds }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Stake</span>
+              <span id="matchStake">
+                {{ bet.stake | number : "1.2-2" }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Avg. odds matched</span>
+              <span id="matchAvgOdds">
+                {{ bet.odds }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Profit/Loss</span>
+              <span id="matchAvgOdds">
+                <td *ngIf="this.betstatus == '1'">
+                  <span id="pol" class="small-date" [ngClass]="{ win: bet.PL > 0, lose: bet.PL < 0 }">{{ bet.PL | number
+                    : "1.2-2" }}</span>
+                </td>
+                <td *ngIf="this.betstatus == '3' || this.betstatus == '2'">
+                  <span id="pol" class="small-date lose">0.00</span>
+                </td>
+              </span>
+            </div>
+          </div>
+        </div>
+        <ul class="pagination justify-content-center mt-2" *ngIf="bets.length >= 1 ">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+    </div>
+
+    <!-- content end  -->
+  </div>
+  <!-- footer start -->
+  <app-s-footer></app-s-footer>
+  <!-- footer end -->
+</div>

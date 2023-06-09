@@ -1,0 +1,694 @@
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+  <header class="header header-casino">
+    <!-- <app-header-casino></app-header-casino> -->
+    <app-header></app-header>
+  </header>
+  <div class="logo-box d-none-mobile logo-casino">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+          style="position: absolute; left: 16px; top: 1px; height: 71px" /></a>
+    </div>
+  </div>
+  <div class="center-main-content report-container">
+    <div class="news-bar d-none-desktop" style="background: none">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+        <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"></div>
+      </div>
+    </div>
+    <!-- content start  -->
+    <div class="report-box">
+      <div class="report-title">
+        <div class="report-name">Casino Bets</div>
+        <div class="report-search search-box">
+          <div class="form-group mb-0">
+            <input type="text" placeholder="Search" class="form-control" />
+            <img src="assets/img/search.svg" class="search-icon" />
+          </div>
+        </div>
+      </div>
+
+      <div class="casino-report-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li role="presentation" (click)="changeSport('')" class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#casinobethistory" type="button" role="tab"
+              aria-controls="casinobethistory" aria-selected="true">
+              Casino Bets History
+            </a>
+          </li>
+          <li role="presentation" (click)="changeSport('')" class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#casinoprofit" type="button" role="tab"
+              aria-controls="casinoprofit" aria-selected="false">
+              Casino Profit & Loss
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade active show" id="casinobethistory" role="tabpanel"
+          aria-labelledby="casinobethistory-tab">
+          <div class="report-form">
+            <div class="form-group from-date">
+              <label>From</label>
+              <div class="mx-datepicker">
+                <div class="mx-input-wrapper">
+                  <input id="date1" name="date" id="startDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                    bsDatepicker [(ngModel)]="selectfromdate" [minDate]="month" [maxDate]="selectfromdate" [bsConfig]="{
+                      dateInputFormat: 'DD-MM-YYYY',
+                      containerClass: 'theme-default',
+                      isAnimated: true
+                    }" class="mx-input" /><i class="mx-icon-clear">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                      </path>
+                    </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                      </path>
+                    </svg></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group to-date">
+              <label>To</label>
+              <div class="mx-datepicker">
+                <div class="mx-input-wrapper">
+                  <input id="fiscalYear" name="date" id="endDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                    bsDatepicker [(ngModel)]="selecttodate" [minDate]="month" [maxDate]="selecttodate" [bsConfig]="{
+                      dateInputFormat: 'DD-MM-YYYY',
+                      containerClass: 'theme-default',
+                      isAnimated: true
+                    }" class="mx-input" /><i class="mx-icon-clear"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                      </path>
+                    </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                      </path>
+                    </svg></i>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" (click)="GetBetHistory()">
+              Submit
+            </button>
+          </div>
+          <div class="report-page-count">
+            <div class="form-group mb-0">
+              <label>Show</label>
+              <select (change)="onTableSizeChange($event)" class="form-control">
+                <option *ngFor="let size of tableSizes">{{ size }}</option>
+              </select>
+              <label>Entries</label>
+            </div>
+            <div class="file-icons d-none-mobile">
+              <div>
+                <i (click)="exportPdf()" class="fas fa-file-pdf"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+              <div id="export_1682431268351">
+                <i (click)="exportExcel()" class="fas fa-file-excel"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+            </div>
+            <div class="file-icons d-none-desktop">
+              <div>
+                <i (click)="exportPdfm()" class="fas fa-file-pdf"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+              <div id="export_1682431268351">
+                <i (click)="exportExcelm()" class="fas fa-file-excel"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="report-table d-none-mobile" id="table01">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="bet-market2">
+                    <div>Bet ID</div>
+                  </th>
+                  <th class="bet-startime">
+                    <div>Event</div>
+                  </th>
+                  <th class="bet-settledate">
+                    <div>Bet Placed</div>
+                  </th>
+                  <th class="bet-profitloss">
+                    <div>Bet_Settled</div>
+                  </th>
+                  <th class="bet-profitloss">
+                    <div>Stake</div>
+                  </th>
+                  <th class="bet-profitloss">
+                    <div>Profit/Loss</div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody *ngIf="bettingHistory.length == 0">
+                <tr class="no-record">
+                  <td colspan="6">No records found</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="pagination justify-content-center mt-2" *ngIf="bettingHistory?.length >= 1">
+              <pagination-controls (pageChange)="onTableDataChange($event)">
+              </pagination-controls>
+            </ul>
+          </div>
+          <div class="report-table d-none-desktop" id="table02">
+            <table class="dat1 table table-hover" id="tempTr" *ngFor="
+                let bet of bettingHistory
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let index = index">
+              <tbody class="report-row">
+                <tr class="dat2">
+                  <th class="bet-heading">Bet ID</th>
+                  <td id="loginDate">
+                    {{ bet.betId }}
+                  </td>
+                </tr>
+
+                <tr class="dat2">
+                  <th class="bet-heading">Event</th>
+                  <td>
+                    {{ bet.provider
+                    }}<img class="fromto" src="assets/images/transparent.gif" />
+                    {{ bet.sportName
+                    }}<img class="fromto" src="assets/images/transparent.gif" />{{ bet.roundId }}
+                  </td>
+                </tr>
+                <tr class="dat2">
+                  <th class="bet-heading">Bet Placed</th>
+                  <td class="bet-ip">
+                    {{ bet.betTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                </tr>
+
+                <tr class="dat2">
+                  <th class="bet-heading">Bet_Settled</th>
+                  <td class="bet-isp">
+                    {{ bet.settledDate | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                </tr>
+                <tr class="dat2">
+                  <th class="bet-heading">Stake</th>
+                  <td class="bet-ip">
+                    {{ bet.stake | number : "0.2" }}
+                  </td>
+                </tr>
+                <tr class="dat2">
+                  <th class="bet-heading">Profit/Loss</th>
+                  <td class="bet-ip" [ngClass]="{ red: bet.PL < 0, green: bet.PL > 0 }">
+                    {{ bet.PL | number : "0.2" }}
+                  </td>
+                </tr>
+              </tbody>
+              
+
+            </table>
+          </div>
+        </div>
+
+        <!-- profit/loss -->
+        <div class="tab-pane fade" id="casinoprofit" role="tabpanel" aria-labelledby="casinoprofit-tab">
+          <div class="report-form">
+            <div class="form-group from-date">
+              <label>From</label>
+              <div class="mx-datepicker">
+                <div class="mx-input-wrapper">
+                  <input id="date1" name="date" id="startDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                    bsDatepicker [(ngModel)]="selectfromdate" [minDate]="month" [maxDate]="selectfromdate" [bsConfig]="{
+                      dateInputFormat: 'DD-MM-YYYY',
+                      containerClass: 'theme-default',
+                      isAnimated: true
+                    }" class="mx-input" /><i class="mx-icon-clear">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                      </path>
+                    </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                      </path>
+                    </svg></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group to-date">
+              <label>To</label>
+              <div class="mx-datepicker">
+                <div class="mx-input-wrapper">
+                  <input id="fiscalYear" name="date" id="endDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                    bsDatepicker [(ngModel)]="selecttodate" [minDate]="month" [maxDate]="selecttodate" [bsConfig]="{
+                      dateInputFormat: 'DD-MM-YYYY',
+                      containerClass: 'theme-default',
+                      isAnimated: true
+                    }" class="mx-input" /><i class="mx-icon-clear"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                      </path>
+                    </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1024 1024" width="1em" height="1em">
+                      <path
+                        d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                      </path>
+                    </svg></i>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" (click)="GetProfitLoss()">
+              Get History
+            </button>
+          </div>
+
+          <div class="report-page-count">
+            <div class="form-group mb-0">
+              <label>Show</label>
+              <select (change)="onTableSizeChange($event)" class="form-control">
+                <option *ngFor="let size of tableSizes">{{ size }}</option>
+              </select>
+              <label>Entries</label>
+            </div>
+            <div class="file-icons d-none-mobile">
+              <div>
+                <i (click)="exportPdfpl()" class="fas fa-file-pdf"
+                  [ngClass]="{ disabled: ProfitLoss?.length == 0 }"></i>
+              </div>
+              <div id="export_1682431268351">
+                <i (click)="exportExcelpl()" class="fas fa-file-excel"
+                  [ngClass]="{ disabled: ProfitLoss?.length == 0 }"></i>
+              </div>
+            </div>
+
+            <div class="file-icons d-none-desktop">
+              <div>
+                <i (click)="exportPdfmpl()" class="fas fa-file-pdf"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+              <div id="export_1682431268351">
+                <i (click)="exportExcelmpl()" class="fas fa-file-excel"
+                  [ngClass]="{ disabled: bettingHistory?.length == 0 }"></i>
+              </div>
+            </div>
+          </div>
+          <div class="report-page-count"></div>
+          <div class="report-table d-none-mobile" id="table011">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="bet-market2">
+                    <div>Market</div>
+                  </th>
+                  <th class="bet-startime">
+                    <div>Start Time</div>
+                  </th>
+                  <th class="bet-settledate">
+                    <div>Settled Date</div>
+                  </th>
+                  <th class="bet-profitloss">
+                    <div>Profit/Loss</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="content">
+                <tr id="tempTr" *ngFor="let pnl of ProfitLoss
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          };
+                    let index = index;
+                    let isOdd = odd;
+                    let isEven = even
+                  ">
+                  <td id="title" class="align-L">
+                    {{pnl.sportName}}
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    <strong style="margin-left: 4px; margin-right: 3px">{{
+                      pnl.eventName
+                      }}</strong>
+                    <i class="" aria-hidden="true"></i>{{ pnl.marketName }}
+                  </td>
+                  <td id="startTime">
+                    {{ pnl.startTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                  <td id="settledDate">
+                    {{ pnl.settledDate | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                  <td>
+                    <a data-bs-toggle="modal" data-bs-target="#profitdata" id="pl0" [ngClass]="{
+                        'expand-open': srNo == index,
+                        'expand-close': srNo != index,
+                        win: pnl.netPL > 0,
+                        lose: pnl.netPL < 0
+                      }" (click)="toggleDetail(index)" href="javascript: void(0);">{{ pnl.netPL | number : "1.2-2"
+                      }}</a>
+                  </td>
+                </tr>
+
+                <!-- pop up -->
+                <div class="modal fade" id="profitdata" tabindex="-1" role="dialog" aria-labelledby="profitdataLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="profitdataLabel">
+                          Profit/Loss Data
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <ng-container *ngFor="
+                            let pnl of ProfitLoss
+                              | paginate
+                                : {
+                                    itemsPerPage: tableSize,
+                                    currentPage: page,
+                                    totalItems: count
+                                  };
+                            let index = index
+                          " style="display: table-row">
+                          <tr id="detail{{ index }}" *ngIf="srNo == index">
+                            <td colspan="4">
+                              <table class="table-commission">
+                                <tbody>
+                                  <tr style="border-bottom: 1px solid #3c444b">
+                                    <th width="23%">Bet ID</th>
+                                    <th width="">Selection</th>
+                                    <th width="9%">Odds</th>
+                                    <th width="13%">Stake</th>
+                                    <th width="8%">Type</th>
+                                    <th width="16%">Placed</th>
+                                    <th width="17%">Profitloss</th>
+                                  </tr>
+                                  <ng-container *ngFor="
+                                      let bet of pnl.bets;
+                                      let index2 = index;
+                                      let isOdd = odd;
+                                      let isEven = even
+                                    ">
+                                    <tr id="txRow{{ index2 }}" style="display: table-row"
+                                      [ngClass]="{ odd: isOdd, even: isEven }">
+                                      <td class="loss" id="betID">
+                                        {{ bet.betId }}
+                                      </td>
+                                      <td class="loss" id="matchSelection">
+                                        {{ bet.selName }}
+                                      </td>
+                                      <td class="loss" id="txOddsMatched">
+                                        {{ bet.odds }}
+                                      </td>
+                                      <td class="loss" id="txStake">
+                                        {{ bet.stake | number : "1.2-2" }}
+                                      </td>
+                                      <td class="loss">
+                                        <span id="matchType">{{
+                                          bet.betType
+                                          }}</span>
+                                      </td>
+                                      <td class="loss" id="placed">
+                                        {{
+                                        bet.betTime
+                                        | date : "yyyy-MM-dd HH:mm"
+                                        }}
+                                      </td>
+                                      <td class="loss" id="txLiability">
+                                        {{ bet.netPl | number : "1.2-2" }}
+                                      </td>
+                                    </tr>
+                                  </ng-container>
+                                  <br />
+                                  <tr class="sum-pl">
+                                    <td colspan="7">
+                                      <dl class="afterdata">
+                                        <dt>Total Stakes</dt>
+                                        <dd class="profit" id="totalStakes">
+                                          {{
+                                          pnl.totalStakes | number : "1.2-2"
+                                          }}
+                                        </dd>
+
+                                        <dt id="backSubTotalTitle">
+                                          Yes Subtotal
+                                        </dt>
+                                        <dd class="profit" id="backSubTotal">
+                                          {{ pnl.backTotal | number : "1.2-2" }}
+                                        </dd>
+
+                                        <dt id="laySubTotalTitle">
+                                          No Subtotal
+                                        </dt>
+                                        <dd class="profit" id="laySubTotal">
+                                          {{ pnl.layTotal | number : "1.2-2" }}
+                                        </dd>
+
+                                        <dt>Market subtotal</dt>
+                                        <dd class="profit" id="marketTotal">
+                                          {{ pnl.mktPnl | number : "1.2-2" }}
+                                        </dd>
+
+                                        <dt id="commissionTitle">
+                                          Commission Title
+                                        </dt>
+                                        <dd class="profit" id="commission">
+                                          {{
+                                          pnl.commission | number : "1.2-2"
+                                          }}
+                                        </dd>
+                                      </dl>
+                                      <dl class="af1">
+                                        <dt class="net_total">
+                                          Net Market Total
+                                        </dt>
+                                        <dd class="profit" id="netTotal">
+                                          {{ pnl.netPL | number : "1.2-2" }}
+                                        </dd>
+                                      </dl>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                
+                              </table>
+                            </td>
+                          </tr>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tbody>
+              <tbody *ngIf="bettingHistory.length == 0">
+                <tr class="no-record">
+                  <td colspan="4">No records found</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="pagination justify-content-center mt-2" *ngIf="ProfitLoss?.length >= 1">
+              <pagination-controls (pageChange)="onTableDataChange($event)">
+              </pagination-controls>
+            </ul>
+          </div>
+          <div class="report-table d-none-desktop" id="table022">
+            <table class="report-row table table-hover">
+
+              <tbody class="dat1" id="tempTr" *ngFor="let pnl of ProfitLoss; let index = index">
+                <tr class="dat2">
+                  <th class="bet-heading">Market</th>
+                  <td id="loginDate">
+                    {{ pnl.sportName }}
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    <strong style="margin-left: 4px; margin-right: 3px">
+                      {{ pnl.eventName }}
+                    </strong>
+                    <i class="" aria-hidden="true"></i>
+                    {{ pnl.marketName }}
+                  </td>
+                </tr>
+
+                <tr class="dat2">
+                  <th class="bet-heading">Start Time</th>
+                  <td>
+                    {{ pnl.startTime | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                </tr>
+
+                <tr class="dat2">
+                  <th class="bet-heading">Settled Date</th>
+                  <td class="bet-ip">
+                    {{ pnl.settledDate | date : "yyyy-MM-dd HH:mm:ss" }}
+                  </td>
+                </tr>
+
+                <tr class="dat2">
+                  <th class="bet-heading">Profit/Loss</th>
+                  <td class="bet-isp">
+                    <a data-bs-toggle="modal" data-bs-target="#profitdata" id="pl0" [ngClass]="{
+                        'expand-open': srNo == index,
+                        'expand-close': srNo != index,
+                        win: pnl.netPL > 0,
+                        lose: pnl.netPL < 0
+                      }" (click)="toggleDetail(index)" href="javascript: void(0);">{{ pnl.netPL | number : "1.2-2"
+                      }}</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="ProfitLoss.length == 0">
+                <tr class="no-record">
+                  <td colspan="6">No records found</td>
+                </tr>
+              </tbody>
+
+            </table>
+            <!-- pop up -->
+            <div class="modal fade" id="profitdata" tabindex="-1" role="dialog" aria-labelledby="profitdataLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="profitdataLabel">
+                      Profit/Loss Data
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <ng-container *ngFor="let pnl of ProfitLoss; let index = index" style="display: table-row">
+                      <tr id="detail{{ index }}" *ngIf="srNo == index">
+                        <td colspan="4">
+                          <table class="table-commission">
+                            <tbody>
+                              <tr style="border-bottom: 1px solid #3c444b">
+                                <th width="23%">Bet ID</th>
+                                <th width="">Selection</th>
+                                <th width="9%">Odds</th>
+                                <th width="13%">Stake</th>
+                                <th width="8%">Type</th>
+                                <th width="16%">Placed</th>
+                                <th width="17%">Profitloss</th>
+                              </tr>
+                              <ng-container *ngFor="
+                                  let bet of pnl.bets;
+                                  let index2 = index;
+                                  let isOdd = odd;
+                                  let isEven = even
+                                ">
+                                <tr id="txRow{{ index2 }}" style="display: table-row"
+                                  [ngClass]="{ odd: isOdd, even: isEven }">
+                                  <td class="loss" id="betID">
+                                    {{ bet.betId }}
+                                  </td>
+                                  <td class="loss" id="matchSelection">
+                                    {{ bet.selName }}
+                                  </td>
+                                  <td class="loss" id="txOddsMatched">
+                                    {{ bet.odds }}
+                                  </td>
+                                  <td class="loss" id="txStake">
+                                    {{ bet.stake | number : "1.2-2" }}
+                                  </td>
+                                  <td class="loss">
+                                    <span id="matchType">
+                                      {{ bet.betType }}
+                                    </span>
+                                  </td>
+                                  <td class="loss" id="placed">
+                                    {{
+                                    bet.betTime | date : "yyyy-MM-dd HH:mm"
+                                    }}
+                                  </td>
+                                  <td class="loss" id="txLiability">
+                                    {{ bet.netPl | number : "1.2-2" }}
+                                  </td>
+                                </tr>
+                              </ng-container>
+                              <br />
+                              <tr class="sum-pl">
+                                <td colspan="7">
+                                  <dl class="afterdata">
+                                    <dt>Total Stakes</dt>
+                                    <dd class="profit-m" id="totalStakes">
+                                      {{ pnl.totalStakes | number : "1.2-2" }}
+                                    </dd>
+
+                                    <dt id="backSubTotalTitle">Yes Subtotal</dt>
+                                    <dd class="profit-m" id="backSubTotal">
+                                      {{ pnl.backTotal | number : "1.2-2" }}
+                                    </dd>
+
+                                    <dt id="laySubTotalTitle">No Subtotal</dt>
+                                    <dd class="profit-m" id="laySubTotal">
+                                      {{ pnl.layTotal | number : "1.2-2" }}
+                                    </dd>
+
+                                    <dt>Market subtotal</dt>
+                                    <dd class="profit-m" id="marketTotal">
+                                      {{ pnl.mktPnl | number : "1.2-2" }}
+                                    </dd>
+                                    <dt id="commissionTitle">
+                                      Commission Title
+                                    </dt>
+                                    <dd class="profit-m" id="commission">
+                                      {{ pnl.commission | number : "1.2-2" }}
+                                    </dd>
+
+                                    <dt class="net_total">Net Market Total</dt>
+                                    <dd class="profit-m" id="netTotal">
+                                      {{ pnl.netPL | number : "1.2-2" }}
+                                    </dd>
+                                  </dl>
+                                </td>
+                              </tr>
+                            </tbody>
+                            <tbody *ngIf="bettingHistory.length == 0">
+                              <tr class="no-record">
+                                <td colspan="4">No records found</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- </tbody>
+                  </table> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content end  -->
+  </div>
+  <!-- footer start -->
+  <app-s-footer></app-s-footer>
+  <!-- footer end -->
+</div>

@@ -1,0 +1,210 @@
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+  <header class="header header-casino">
+    <!-- <app-header-casino></app-header-casino> -->
+    <app-header></app-header>
+    <!-- <app-highlights></app-highlights> -->
+  </header>
+  <div class="logo-box d-none-mobile logo-casino">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+          style="position: absolute; left: 16px; top: 1px; height: 71px" /></a>
+    </div>
+  </div>
+  <div class="center-main-content report-container">
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+          <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+      </div>
+    </div>
+    <div class="report-box">
+      <div class="report-title">
+        <div class="report-name">Account Statement</div>
+        <div class="report-search search-box">
+          <div class="form-group mb-0">
+            <input type="text" placeholder="Search" class="form-control" />
+            <img src="assets/img/search.svg" class="search-icon" />
+          </div>
+        </div>
+      </div>
+      <div class="report-form">
+        <div class="form-group from-date">
+          <label>From</label>
+          <div class="mx-datepicker">
+            <div class="mx-input-wrapper">
+              <input id="date1" name="date" id="startDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                bsDatepicker [(ngModel)]="selectfromdate" [minDate]="month" [maxDate]="selectfromdate" [bsConfig]="{
+                  dateInputFormat: 'DD-MM-YYYY',
+                  containerClass: 'theme-default',
+                  isAnimated: true
+                }" class="mx-input" /><i class="mx-icon-clear">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1em" height="1em">
+                  <path
+                    d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                  </path>
+                </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                  width="1em" height="1em">
+                  <path
+                    d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                  </path>
+                </svg></i>
+            </div>
+          </div>
+        </div>
+        <div class="form-group to-date">
+          <label>To</label>
+          <div class="mx-datepicker">
+            <div class="mx-input-wrapper">
+              <input id="fiscalYear" name="date" id="endDate" class="cal-input" type="text" placeholder="YYYY-MM-DD"
+                bsDatepicker [(ngModel)]="selecttodate" [minDate]="month" [maxDate]="selecttodate" [bsConfig]="{
+                  dateInputFormat: 'DD-MM-YYYY',
+                  containerClass: 'theme-default',
+                  isAnimated: true
+                }" class="mx-input" /><i class="mx-icon-clear"><svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1024 1024" width="1em" height="1em">
+                  <path
+                    d="M810.005333 274.005333l-237.994667 237.994667 237.994667 237.994667-60.010667 60.010667-237.994667-237.994667-237.994667 237.994667-60.010667-60.010667 237.994667-237.994667-237.994667-237.994667 60.010667-60.010667 237.994667 237.994667 237.994667-237.994667z">
+                  </path>
+                </svg></i><i class="mx-icon-calendar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
+                  width="1em" height="1em">
+                  <path
+                    d="M940.218182 107.054545h-209.454546V46.545455h-65.163636v60.50909H363.054545V46.545455H297.890909v60.50909H83.781818c-18.618182 0-32.581818 13.963636-32.581818 32.581819v805.236363c0 18.618182 13.963636 32.581818 32.581818 32.581818h861.090909c18.618182 0 32.581818-13.963636 32.581818-32.581818V139.636364c-4.654545-18.618182-18.618182-32.581818-37.236363-32.581819zM297.890909 172.218182V232.727273h65.163636V172.218182h307.2V232.727273h65.163637V172.218182h176.872727v204.8H116.363636V172.218182h181.527273zM116.363636 912.290909V442.181818h795.927273v470.109091H116.363636z">
+                  </path>
+                </svg></i>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="AccountStatement()">
+          Submit
+        </button>
+      </div>
+      <div class="report-page-count">
+        <div class="form-group mb-0">
+          <label>Show</label>
+          <select (change)="onTableSizeChange($event)" class="form-control">
+            <option *ngFor="let size of tableSizes">{{size}}</option>
+          </select>
+          <label>Entries</label>
+        </div>
+        <div class="file-icons">
+          <div>
+            <i (click)="exportPdf()" class="fas fa-file-pdf "
+              [ngClass]="{'disabled':statementsData.result != null }"></i>
+          </div>
+          <div id="export_1682431268351">
+            <i (click)="exportExcel()" class="fas fa-file-excel"
+              [ngClass]="{'disabled':statementsData.result != null }"></i>
+          </div>
+        </div>
+      </div>
+      <div class="report-page-count"></div>
+
+      <div class="report-table ac-statement d-none-mobile" id="table01">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="bet-date">
+                <div>Date</div>
+              </th>
+              <!-- <th class="text-right bet-user-rate">
+                        <div>Sr no</div>
+                      </th> -->
+              <th class="text-right bet-amount">
+                <div>Credit</div>
+              </th>
+              <th class="text-right bet-amount">
+                <div>Debit</div>
+              </th>
+              <th class="text-right bet-amount">
+                <div>Balance</div>
+              </th>
+              <th class="bet-remark">
+                <div>Remark</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="content">
+            <tr *ngFor="let statement of statementsData | paginate:{
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count}; let index = index">
+              <td id="createDate" class="bet-amount">
+                {{ statement.settlementDate | date : "yyyy-MM-dd HH:mm:ss" }}
+              </td>
+              <td id="deposit" class="bet-amount">
+                {{ statement.credit == "0" ? "--" : statement.credit }}
+              </td>
+              <td id="withdraw" class="bet-amount">
+                {{ statement.debit == "0" ? "--" : statement.debit }}
+              </td>
+              <td id="balance" class="bet-amount">
+                {{ statement.runningBalance | number : "1.2-2" }}
+              </td>
+              <td id="remark" class="bet-amount">{{ statement.narration }}</td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="statementsData.length == 0"><tr class="no-record"><td colspan="5">No records found</td></tr></tbody>
+        </table>
+        <ul class="pagination justify-content-center mt-2" *ngIf="statementsData.length >= 1">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+
+      <div class="report-table d-none-desktop">
+        <div *ngIf="statementsData.length == 0"><div class="no-record"><p colspan="5">No records found</p></div></div>
+        <div class="report-row">
+          <div class="dat1" id="tempTr" *ngFor="let statement of statementsData | paginate:{
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count}; let index = index">
+            <div class="dat2">
+              <span class="bet-heading">Date</span>
+              <span id="deposit">{{
+                statement.settlementDate | date : "yyyy-MM-dd HH:mm:ss"
+                }}</span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Credit</span>
+              <span id="deposit">{{
+                statement.credit == "0" ? "--" : statement.credit
+                }}</span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Debit</span>
+              <span id="withdraw">
+                {{ statement.debit == "0" ? "--" : statement.debit }}
+                <!-- <i class="fas fa-eye ml-2"></i> -->
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Balance</span>
+              <span id="balance">
+                {{ statement.runningBalance | number : "1.2-2" }}
+              </span>
+            </div>
+            <div class="dat2">
+              <span class="bet-heading">Remark</span>
+              <span id="remark">
+                {{ statement.narration }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <ul class="pagination justify-content-center mt-2" *ngIf="statementsData.length >= 1">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- footer start -->
+  <app-s-footer></app-s-footer>
+  <!-- footer end -->
+</div>

@@ -1,0 +1,30 @@
+<!-- left side-bar -->
+<div class="sidebar-left d-none-mobile">
+    <div class="logo-box d-none-mobile">
+      <div class="logo"><a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png"
+            class="img-fluid"></a></div>
+    </div>
+  
+    <div class="search-box">
+      <div class="form-group"><input type="text" placeholder="Search for Casino" class="form-control"
+          [(ngModel)]="searchTerm" (keyup)="search($event)"> <img
+          src="assets/img/search.svg" class="search-icon"></div>
+    </div>
+  
+    <!-- our casino sidebar -->
+    <div class="menu-box casino-menu" >
+      <ul class="navbar-nav">
+        <span mode="out-in">
+          <li class="nav-item">
+            <a   [ngClass]="{'active': tableList.length >16 }"  (click)="openTable('',$event)" ><span class="sport-name">All Casino</span></a>
+          </li>
+          <ng-container *ngFor="let data of casinoList | uniqueFilter">
+            <li class="nav-item listitem">
+              <a (click)="openTable(data.category,$event)" routerLink="/casino" [ngClass]="{'active': selectedItem == data.category}" ><span class="sport-name">{{data.category}}</span></a>
+            </li>
+          </ng-container>
+        </span>
+      </ul>
+    </div>
+  </div>
+  <!-- end left side-bar -->

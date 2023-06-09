@@ -1,0 +1,44 @@
+.marquee{
+    width: 99vw;
+    height: 40vh;
+    color: white;
+    overflow: hidden;
+}
+.marquee-content{
+    list-style: none;
+    height: 100%;
+    display: flex;
+    animation:scrolling 28s linear infinite ;
+}
+@media (min-width:300px) and (max-width:500px){
+    .marquee-content{
+        animation:scrolling 10s linear infinite ;
+    }
+}
+
+@keyframes scrolling {
+    0% {transform: translateX(-3vw);}
+    100%{transform: translateX(-180vw);}
+    
+}
+.marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    flex-shrink: 0;
+    font-size: 5rem;
+    white-space: nowrap;
+}
+
+
+.player-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top-winner-list-box{
+    background: #16191c;
+}
+

@@ -1,0 +1,153 @@
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+  <header class="header header-casino">
+    <!-- <app-header-casino></app-header-casino> -->
+    <app-header></app-header>
+  </header>
+  <div class="logo-box d-none-mobile logo-casino">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+          style="position: absolute; left: 16px; top: 1px; height: 71px" /></a>
+    </div>
+  </div>
+  <div class="center-main-content report-container">
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+          <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+      </div>
+    </div>
+
+    <!-- content start  -->
+    <div class="report-box">
+      <div class="report-title">
+        <div class="report-name">Activity Log</div>
+
+        <div class="report-page-count">
+
+          <div class="form-group mb-0">
+            <label>Show</label>
+            <select (change)="onTableSizeChange($event)" class="form-control">
+              <option *ngFor="let size of tableSizes">{{size}}</option>
+            </select>
+            <label>Entries</label>
+          </div>
+          <div class="file-icons">
+            <div>
+              <i (click)="exportPdf()" class="fas fa-file-pdf " [ngClass]="{'disabled':logsData?.result != null }"></i>
+            </div>
+            <div id="export_1682431268351">
+              <i (click)="exportExcel()" class="fas fa-file-excel"
+                [ngClass]="{'disabled':logsData?.result != null }"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="report-table d-none-mobile" id="table01">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="bet-date">
+                <div>Date</div>
+              </th>
+              <th class="bet-status">
+                <div>Login Status</div>
+              </th>
+              <th class="bet-ip">
+                <div>Ip Address</div>
+              </th>
+              <th class="bet-isp">
+                <div>ISP</div>
+              </th>
+              <th class="bet-city">
+                <div>City/State/Country</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let log of logsData | paginate:{
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count};   let i = index">
+              <td class="align-L" id="loginDate">
+                {{ log.loginTime | date : "yyyy-MM-dd HH:mm:ss" }}
+              </td>
+              <td class="align-L" [ngClass]="log.loginStatus == 1 ? 'green' : 'red'" id="loginMessage">
+                Login {{ log.loginStatus == 1 ? "Success" : "Failed" }}
+              </td>
+              <td id="ipAddress">{{ log.loginIp }}</td>
+              <td id="isp">{{ log.ISP }}</td>
+              <td id="location">{{ log.origin }}</td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="logsData?.length == 0"><tr class="no-record"><td colspan="5">No records found</td></tr></tbody>
+        </table>
+        <div>
+        </div>
+
+        <ul class="pagination justify-content-center mt-2" *ngIf="logsData?.length >= 1">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+
+      <div class="report-table d-none-desktop" >
+        <div *ngIf="logsData?.length == 0"><div class="no-record"><p colspan="5">No records found</p></div></div>
+
+        <div class="report-row">
+            <div class="dat1" id="tempTr" *ngFor="let log of logsData | paginate:{
+              itemsPerPage: tableSize,
+              currentPage: page,
+              totalItems: count};   let i = index">
+              <div class="dat2">
+                <span class="bet-heading">Date</span>
+                <span id="loginDate">{{
+                  log.loginTime | date : "yyyy-MM-dd HH:mm:ss"
+                  }}</span>
+              </div>
+              <div class="dat2">
+                <span class="bet-heading">Login Status</span>
+                <span [ngClass]="log.loginStatus == 1 ? 'green' : 'red'" id="loginMessage">Login {{ log.loginStatus == 1
+                  ?
+                  "Success" : "Failed" }}</span>
+              </div>
+              <div class="dat2">
+                <span class="bet-heading">Ip Address</span>
+                <span class="bet-ip">
+                  {{ log.loginIp }}
+
+                </span>
+              </div>
+              <div class="dat2">
+                <span class="bet-heading">Isp</span>
+                <span class="bet-isp">
+                  {{ log.ISP }}
+                </span>
+              </div>
+              <div class="dat2">
+                <span class="bet-heading">City/State/Country</span>
+                <span class="bet-city">
+                  {{ log.origin }}
+                </span>
+              </div>
+            </div>
+        </div>
+        <ul class="pagination justify-content-center mt-2" *ngIf="logsData?.length >= 1 ">
+          <pagination-controls (pageChange)="onTableDataChange($event)">
+          </pagination-controls>
+        </ul>
+      </div>
+    </div>
+    <!-- content end  -->
+  </div>
+  <!-- footer start -->
+  <app-s-footer></app-s-footer>
+  <!-- footer end -->
+</div>

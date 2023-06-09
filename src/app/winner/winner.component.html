@@ -1,0 +1,60 @@
+<div class="marquee">
+    <ul class="marquee-content">
+        <ng-container *ngFor="let user of winners;">
+            <li>
+                <div tabindex="-1" data-index="-9" aria-hidden="true" class="slick-slide slick-cloned">
+                    <div>
+                        <div tabindex="-1" class="top-winner-list-box" style="width: 100%; display: inline-block;">
+                            <div class="w-100 text-center "><img class="m-auto"
+                                    src="assets/img/user-icon.png"></div>
+                            <div class="w-100">
+
+                                <div class="player-detail">
+                                    <div><b>Player</b></div>
+                                    <div>{{user?.Playername}}</div>
+                                </div>
+                                <div class="player-detail">
+                                    <div><b>Time</b></div>
+                                    <div>16/01/2023 15:59</div>
+                                </div>
+                                <div class="player-detail">
+                                    <div><b>Win Amount</b></div>
+                                    <div>{{user?.winAmount}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+        <!-- ---------------------------------------------- -->
+
+        <ng-container *ngFor="let user of winners;">
+            <li>
+                <div tabindex="-1" data-index="-9" aria-hidden="true" class="slick-slide slick-cloned">
+                    <div>
+                        <div tabindex="-1" class="top-winner-list-box" style="width: 100%; display: inline-block;">
+                            <div class="w-100 text-center "><img class="m-auto"
+                                    src="assets/img/user-icon.png"></div>
+                            <div class="w-100">
+                                <div class="player-detail">
+                                    <div><b>Player</b></div>
+                                    <div>{{user?.Playername}}</div>
+                                </div>
+                                <div class="player-detail">
+                                    <div><b>Time</b></div>
+                                    <div>16/01/2023 15:59</div>
+                                </div>
+                                <div class="player-detail">
+                                    <div><b>Win Amount</b></div>
+                                    <div>{{user?.winAmount}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+</div>

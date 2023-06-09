@@ -1,0 +1,19 @@
+/* .casino-banners {
+    background-color: var(--bg-table);
+    padding: 10px 10px 0 10px;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    margin-top: 34px;
+} */
+
+.sidebar-left~.main-container {
+
+    margin-top: 57px
+}
+.span1{
+    color: var(--text-body);
+}
+/* #sup:hover{
+    filter: blur(2px)!important;
+} */

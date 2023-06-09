@@ -1,0 +1,636 @@
+<!-- header top -->
+<app-header-top></app-header-top>
+<!-- <app-header></app-header> -->
+<app-highlights></app-highlights>
+<!-- end header top -->
+
+<div class="main-container">
+    <header class="header header-casino">
+        <!-- upcoming feature  -->
+        <!-- <app-header-casino></app-header-casino> -->
+        <!-- upcoming feature  -->
+        <app-header></app-header>
+
+    </header>
+    <div class="logo-box d-none-mobile logo-casino">
+        <div class="logo">
+            <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+                    style="position: relative; bottom: 12px; height: 71px;">
+            </a>
+        </div>
+    </div>
+    <div class="center-main-content report-container">
+        <div class="news-bar d-none-desktop" style="background: none;">
+            <app-news></app-news>
+        </div>
+
+        <div class="upcoming-fixure d-none-desktop">
+            <div class="fixure-title">Upcoming Fixtures</div>
+            <div class="fixure-box-container">
+                <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+            </div>
+        </div>
+        <div class="report-box casino-box w-100 casino-fantasy">
+            <div class="slot-note">
+                <div class="note-title">Note:</div>
+                <div class="note-desc d-none-mobile">
+                    Follow FAQ when none of these games work.
+                </div>
+                <div class="note-desc d-none-desktop">
+                    <marquee>Follow FAQ when none of these games work.</marquee>
+                </div> <a routerLink="/faq" class="btn btn-primary mr-2">Click Here</a>
+            </div>
+            <div class="container-fluid container-fluid-5">
+                <div class="row row5">
+                    <div class="col-md-7">
+                        <div class="casino-banners mt-0 row row5" role="tablist">
+                            <div class="col-6 col-md-3 mb-2 active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#home-tab-pane" role="tab" aria-controls="home-tab-pane"
+                                aria-selected="true"><img src="https://sitethemedata.com/casino_icons/other/diam11.png"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col-6 col-md-3 mb-2" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#playerbattle" role="tab" aria-controls="profile-tab-pane"
+                                aria-selected="false"><img
+                                    src="https://sitethemedata.com/casino_icons/other/playerbattle.jpeg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2" id="contact-tab" data-bs-toggle="tab"
+                                data-bs-target="#snakes" role="tab" aria-controls="contact-tab-pane"
+                                aria-selected="false"><img
+                                    src="https://sitethemedata.com/casino_icons/other/snakes-and-ladders.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#rummy" role="tab" aria-controls="profile-tab-pane"
+                                aria-selected="false"><img src="https://sitethemedata.com/casino_icons/other/rummy.jpg"
+                                    class="img-fluid">
+                            </div>
+                            <div class="col-6 col-md-3 mb-2" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#ludoclub" role="tab" aria-controls="profile-tab-pane"
+                                aria-selected="false"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ludoclub.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ludo-lands.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/poptheball.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/jetx.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/cappadocia.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/spinx.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/jetx3.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/cricketx.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/vipkeno.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/ClassicKeno.jpg"
+                                    class="img-fluid"></div>
+                            <div class="col-6 col-md-3 mb-2"><img
+                                    src="https://sitethemedata.com/casino_icons/other/ssg/xgames/RussianKeno.jpg"
+                                    class="img-fluid"></div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-5 tab-content" id="myTabContent">
+                        <!-- diam11 start  -->
+                        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+                            aria-labelledby="home-tab" tabindex="0">
+                            <div class="fantasy-desc-container mt-1">
+                                <h1 class="fantasy-detail-title"><span>Diam11</span> <button
+                                        class="btn btn-lg btn-primary">
+                                        Play
+                                    </button></h1>
+                                <div class="casino-tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a data-toggle="tab"
+                                                class="nav-link active">Description</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div id="tab0" class="tab-pane active">
+                                        <div>
+                                            <div class="fantasy-rules">
+                                                <ol class="list-decimal">
+                                                    <li>
+                                                        Any participant in Diam-11 can form a team on his own,
+                                                        however the team must have 11 players of which a maximum of
+                                                        7 players can be selected from the same team of the actual
+                                                        teams. For example, one can select a maximum of 7 players
+                                                        from India in an IND vs AUS match.
+                                                    </li>
+                                                    <li>
+                                                        The team can be formed in any different combination without
+                                                        exceeding the 100 credit, additionally the same team must
+                                                        have the following combination in order to get qualified.
+                                                        <table class="m-1">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Player Type</th>
+                                                                    <th>Min</th>
+                                                                    <th>Max</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Wicket Keeper - WK</td>
+                                                                    <td>1</td>
+                                                                    <td>4</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Batsman - BAT</td>
+                                                                    <td>3</td>
+                                                                    <td>6</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>All Rounder - AR</td>
+                                                                    <td>1</td>
+                                                                    <td>4</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Bowler - BWL</td>
+                                                                    <td>3</td>
+                                                                    <td>6</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </li>
+                                                    <li>
+                                                        Captain and Vice-captain has to be assigned once the team is
+                                                        selected.
+                                                    </li>
+                                                    <li>
+                                                        Once the line-up flag has been announced:
+                                                        <ol class="list-outside">
+                                                            <li>
+                                                                Changes in the existing team can be done, however
+                                                                captain and vice-captain cannot be changed.
+                                                            </li>
+                                                            <li>New teams cannot be formed.</li>
+                                                            <li>
+                                                                Teams already formed can join any contest if the
+                                                                same haven’t joined any.
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+                                                    <li>
+                                                        Once the live flag is announced:
+                                                        <ol class="list-outside">
+                                                            <li>No changes will be permitted.</li>
+                                                            <li>
+                                                                No team can join any new contest, even if the team
+                                                                has been created before live flag.
+                                                            </li>
+                                                        </ol>
+                                                    </li>
+                                                    <li>
+                                                        Substitutes will not be awarded any points for their
+                                                        contribution.
+                                                    </li>
+                                                    <li>
+                                                        If a player gets replaced by substitute, but later comes
+                                                        back on field, he will get points for his contributions.
+                                                        However, if a player, who was not a part of the announced
+                                                        lineups, comes to the field as a substitute, he will not get
+                                                        points for any of his contributions.
+                                                    </li>
+                                                    <li>
+                                                        Super over is not included in our point system. Therefore,
+                                                        no points will be awarded for any contribution in super
+                                                        over.
+                                                    </li>
+                                                    <li>
+                                                        The points awarded in live are subjected to changes based on
+                                                        the changes in live, for example a wicket given, and the
+                                                        decision has been reversed based on DRS or any other fact.
+                                                    </li>
+                                                    <li>Winners will be declared post completion of the match.</li>
+                                                    <li>
+                                                        These rules doesn’t apply to any other Fancy or Fancy-1
+                                                        markets.
+                                                    </li>
+                                                    <li>
+                                                        Winning of any mentioned pots will be decided based on the
+                                                        number of participants joined. For example, the winning of a
+                                                        100 participant pot will be different if the entire 100
+                                                        participants has joined and if only 60 participants has
+                                                        joined.
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- diam 11 end  -->
+                        <!-- playerbattle start-->
+                        <div class="tab-pane fade" id="playerbattle" role="tabpanel" aria-labelledby="profile-tab"
+                            tabindex="0">
+                            <div class="fantasy-desc-container mt-1">
+                                <h1 class="fantasy-detail-title"><span>Player Battle</span> <button
+                                        class="btn btn-lg btn-primary">
+                                        Play
+                                    </button></h1>
+                                <div class="casino-tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a data-toggle="tab"
+                                                class="nav-link active">Description</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div id="tab0" class="tab-pane active">
+                                        <div>
+                                            <div class="fantasy-rules">
+                                                <ol class="list-decimal">
+                                                    <li>
+                                                        Player battle is a skill game where any user can select real
+                                                        players and play against computer.
+                                                    </li>
+                                                    <li>
+                                                        User can select his set of players based on the event type.
+                                                        For example, 2vs2 or 4vs4 based on the game category.
+                                                    </li>
+                                                    <li>
+                                                        Computer will get default point (points will be based on
+                                                        game category (2vs2/ 4vs4)) if the player selects the first
+                                                        player, vice versa player will get default points if he
+                                                        allows computer to select the first player.
+                                                    </li>
+                                                    <li>
+                                                        If any player who has been selected is not included in
+                                                        playing 11 or didn’t get opportunity to play (bat): -
+                                                        Default runs which was announced in advance will be given to
+                                                        them respectively.
+                                                    </li>
+                                                    <li>
+                                                        User are allowed to make any changes in the team before
+                                                        placing the bet, Once the bet is confirmed user will not be
+                                                        allowed to make any change in the current team. However,
+                                                        user is allowed to create new team and participate.
+                                                    </li>
+                                                    <li>Results will be announced post the match.</li>
+                                                    <li>
+                                                        If the match got interrupted due to any situation such as
+                                                        rain/bad light and the same gets stopped. Default run/run
+                                                        scored whichever is the highest will be awarded for the
+                                                        players who haven’t finished their quota. For example, In a
+                                                        IND vs ENG T20 match England has completed playing 20 over
+                                                        and India got to play 10 over post that the match got
+                                                        stopped due to rain, Then Indian players will get points
+                                                        based on the above mentioned rule. (Note: This is not
+                                                        applicable to the player who has already got out before the
+                                                        match got stopped)
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- playerbattle end-->
+                        <!-- snakes start  -->
+                        <div class="tab-pane fade" id="snakes" role="tabpanel" aria-labelledby="contact-tab"
+                            tabindex="0">
+                            <div class="fantasy-desc-container mt-1">
+                                <h1 class="fantasy-detail-title"><span>snakes and ladders</span> <button
+                                        class="btn btn-lg btn-primary">
+                                        Play
+                                    </button></h1>
+                                <div class="casino-tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a data-toggle="tab"
+                                                class="nav-link active">Description</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div id="tab0" class="tab-pane active">
+                                        <div>
+                                            <div class="fantasy-rules">
+                                                <p>
+                                                    Here’s a Snakes and ladders board game to play with your friends
+                                                    and family.
+                                                </p>
+                                                <h4><b>How To Play?</b></h4>
+                                                <ol class="list-decimal">
+                                                    <li class="mb-1">
+                                                        Take it in turns to roll the dice. Move your counter forward
+                                                        the number of spaces shown on the dice.
+                                                    </li>
+                                                    <li class="mb-1">
+                                                        If your counter lands at the bottom of a ladder, you can
+                                                        move up to the top of the ladder.
+                                                    </li>
+                                                    <li class="mb-1">
+                                                        If your counter lands on the head of a snake, you must slide
+                                                        down to the bottom of the snake.
+                                                    </li>
+                                                    <li class="mb-1">If your timer elapse you lose one live.</li>
+                                                    <li class="mb-1">In total you have 5 lives.</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- snakes end  -->
+
+                        <!-- club rummy start  -->
+                        <div class="tab-pane fade" id="rummy" role="tabpanel" aria-labelledby="contact-tab"
+                            tabindex="0">
+                            <div class="fantasy-desc-container mt-1">
+                                <h1 class="fantasy-detail-title"><span>Rummy</span> <button
+                                        class="btn btn-lg btn-primary">
+                                        Play
+                                    </button></h1>
+                                <div class="casino-tabs">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a data-toggle="tab" class="nav-link active" id="home-tab1"
+                                                data-bs-toggle="tab" data-bs-target="#home-tab-pane1" role="tab"
+                                                aria-controls="home-tab-pane1" aria-selected="true">Description</a></li>
+                                        <li class="nav-item"><a id="profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#profile-tab-pane" role="tab"
+                                                aria-controls="profile-tab-pane" aria-selected="false" data-toggle="tab"
+                                                class="nav-link">How to
+                                                Play</a></li>
+                                        <li class="nav-item"><a id="contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#contact-tab-pane" role="tab"
+                                                aria-controls="contact-tab-pane" aria-selected="false" data-toggle="tab"
+                                                class="nav-link">Scoring</a></li>
+                                    </ul>
+                                </div>
+
+
+
+                                <div class="tab-content">
+                                    <div id="tab0" class="tab-pane active" id="home-tab-pane1" role="tabpanel"
+                                        aria-labelledby="home-tab1" tabindex="0">
+                                        <div>
+                                            <div class="fantasy-rules">
+                                                <ul class="pl-4 pr-4 list-style">
+                                                    <li>
+                                                        To begin the session, each player picks a card at random
+                                                        from the shuffled deck. Seating is as per card value:
+                                                        whoever draws the highest card chooses his seat, to his
+                                                        right the next highest and so on. The lowest, thus, sits to
+                                                        the left of the highest. The lowest deals first and shuffles
+                                                        the cards.
+                                                    </li>
+                                                    <li>
+                                                        The player to the left of the dealer draws a card unseen
+                                                        from the shuffled deck and places it on the table face up,
+                                                        visible to all. This card is known as the 'joker': all cards
+                                                        of the same rank as this turned up card as well as the
+                                                        printed jokers are used as wild cards, and all these cards
+                                                        are referred to as 'jokers'. If the card turned up is a
+                                                        printed joker then will also count ACE as a joker.
+                                                    </li>
+                                                    <li>
+                                                        The player to the dealer's left then cuts the remaining
+                                                        cards and the dealer distributes them anti-clockwise one at
+                                                        a time, the player to the dealer's right getting the first
+                                                        card. 13 cards are dealt to each player. One card is dealt
+                                                        face up to begin the discard pile and the remaining stack is
+                                                        placed face down in the centre crosswise on top of the
+                                                        turned up joker, so that the rank of the joker remains
+                                                        visible.
+                                                    </li>
+                                                    <li>
+                                                        For the next hand the turn to deal passes to the right, and
+                                                        this continues until everyone has dealt once, completing a
+                                                        "round". After playing one or two rounds, the seating is
+                                                        changed again following the same start procedure. Normally a
+                                                        player should quit the play only at the end of a round.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab1" class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                                        aria-labelledby="profile-tab" tabindex="0">
+                                        <div>
+
+                                            <div class="fantasy-rules">
+                                                <ul class="pl-4 pr-4 list-style">
+                                                    <li>
+                                                        The player to the dealer's right plays first, and play
+                                                        continues counter-clockwise. Each player's turn consists of
+                                                        picking up either the top card of the face up discard pile
+                                                        or the top card of the face down stack. Having taken this
+                                                        card into hand the player must discard one card from hand
+                                                        face up on top of the discard pile.
+                                                    </li>
+                                                    <li>
+                                                        If the player chooses to take the top card of the discard
+                                                        pile, that card cannot be discarded in the same turn - the
+                                                        player must discard a different card.
+                                                    </li>
+                                                    <li>
+                                                        It sometimes happens that the card turned up by the dealer
+                                                        to start the discard pile is a joker, which can then be
+                                                        picked up by the first player in the normal way. Since this
+                                                        clearly gives the first player an advantage, it may
+                                                        encourage several other players to drop (see below).
+                                                    </li>
+                                                    <li>
+                                                        The play continues until a player, after picking up a card,
+                                                        has 13 cards that form valid combinations (including at
+                                                        least one pure sequence and at least one other sequence as
+                                                        explained below). In this case the player discards the 14th
+                                                        card and declares 'Rummy', placing the 13 cards face up to
+                                                        show that they form the required sequences and sets, and
+                                                        winning the game.
+                                                    </li>
+                                                    <li>
+                                                        Note that no sequences or sets are laid out during the play.
+                                                        In this form of Rummy players keep all their cards concealed
+                                                        from the other players until a player is able to win.
+                                                    </li>
+                                                </ul>
+                                                <h6>Sequences and sets</h6>
+                                                <ul class="pl-4 pr-4 list-style">
+                                                    <li>
+                                                        The objective is to form one's 13 cards into sequences
+                                                        (runs) and sets (also known as trails or trios).
+                                                    </li>
+                                                    <li>
+                                                        A <b>sequence</b> consists of three or more consecutive
+                                                        cards of the same suit, the order being
+                                                        A-2-3-4-5-6-7-8-9-10-J-Q-K-A. The ace can be next to the two
+                                                        (in A-2-3) or next to the king (in Q-K-A), but not both at
+                                                        once, so K-A-2 is not a legal sequence.
+                                                    </li>
+                                                    <li>
+                                                        A set consists of three cards of the same rank in different
+                                                        suits: 5- 5- 5 is a valid set but 7- 7- 7 is not.
+                                                    </li>
+                                                    <li>
+                                                        A set consists of three cards of the same rank in different
+                                                        suits:
+                                                        <div class="cards-box">
+                                                            <span class="card-character black-card ml-1">5</span>
+                                                            <span class="card-character red-card ml-1">5</span>
+                                                            <span class="card-character red-card ml-1">5</span>
+                                                        </div>
+                                                        is a valid set but
+                                                        <div class="cards-box">
+                                                            <span class="card-character black-card ml-1">7</span>
+                                                            <span class="card-character black-card ml-1">7</span>
+                                                            <span class="card-character red-card ml-1">7</span>
+                                                        </div>
+                                                        is not.
+                                                    </li>
+                                                    <li>
+                                                        Combinations must not overlap - for example
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">7</span>
+                                                            <span class="card-character red-card ml-1">8</span>
+                                                            <span class="card-character red-card ml-1">9</span>
+                                                            <span class="card-character red-card ml-1">9</span>
+                                                            <span class="card-character black-card ml-1">9</span>
+                                                        </div>
+                                                        is either a sequence of diamonds with two spare 9's or a set
+                                                        of 9's with two spare diamonds. If a second
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">9</span>
+                                                        </div>
+                                                        or a
+                                                        <div class="cards-box">
+                                                            <span class="card-character black-card ml-1">9</span>
+                                                        </div>
+                                                        or a
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">6</span>
+                                                        </div>
+                                                        is added, the six cards form a sequence and a set.
+                                                    </li>
+                                                    <li>
+                                                        Wild cards can be used to substitute for any desired card in
+                                                        a set or sequence. For example if the turned up card is a
+                                                        <div class="cards-box">
+                                                            <span class="card-character black-card ml-1">8</span>
+                                                        </div>
+                                                        then
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">3</span>
+                                                            <span class="card-character black-card ml-1">8</span>
+                                                            <span class="card-character red-card ml-1">5</span>
+                                                        </div>
+                                                        5 is a valid sequence, and
+                                                        <div class="cards-box">
+                                                            <span class="card-character black-card ml-1">J</span>
+                                                            <span class="card-character red-card ml-1">J</span>
+                                                            <span class="card-character red-card ml-1">8</span>
+                                                        </div>
+                                                        is a valid set since all 8's are wild.
+                                                    </li>
+                                                    <li>
+                                                        A <b>pure sequence</b> is a sequence formed without the use
+                                                        of wild cards as substitutes for other cards. At least one
+                                                        pure sequence is required in one's hand in order for any
+                                                        combinations to become valid. Note that if 8's are wild,
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">7</span>
+                                                            <span class="card-character red-card ml-1">8</span>
+                                                            <span class="card-character red-card ml-1">9</span>
+                                                        </div>
+                                                        counts as a pure sequence, since the
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">8</span>
+                                                        </div>
+                                                        is used as itself, not as a wild card, but
+                                                        <div class="cards-box">
+                                                            <span class="card-character red-card ml-1">J</span>
+                                                            <span class="card-character red-card ml-1">Q</span>
+                                                            <span class="card-character red-card ml-1">8</span>
+                                                        </div>
+                                                        is not a pure sequence - just an ordinary sequence.
+                                                    </li>
+                                                </ul>
+                                                <h6>Dropping</h6>
+                                                <ul class="pl-4 pr-4 list-style">
+                                                    <li>
+                                                        A player whose hand is unpromising may prefer to withdraw
+                                                        from the game to limit the amount lost. This is called
+                                                        dropping or packing.
+                                                    </li>
+                                                    <li>
+                                                        A player who drops at the start of his first turn, before
+                                                        drawing any card from the stack or discard pile, pays 20
+                                                        points to the eventual winner.
+                                                    </li>
+                                                    <li>
+                                                        A player who drops at a later turn must pay 40 points to the
+                                                        eventual winner, if any. This player's cards are not added
+                                                        to the stack - they are set aside face down out of the game.
+                                                    </li>
+                                                    <li>
+                                                        If all players except one have dropped, the last remaining
+                                                        player automatically wins, and immediately collects the
+                                                        appropriate amounts from the players who dropped.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab2" class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
+                                        aria-labelledby="contact-tab" tabindex="0">
+                                        <div>
+                                            <div class="fantasy-rules">
+                                                <ul class="pl-4 pr-4 list-style">
+                                                    <li>
+                                                        After the winner declares rummy, all other players who have
+                                                        not dropped count their hands for pay-off. The values of the
+                                                        cards are as follows:
+                                                        <div class="pl-2 pr-2">
+                                                            A, K, Q, J, 10 count 10 points each
+                                                        </div>
+                                                        <div class="pl-2 pr-2">
+                                                            9, 8, 7, 6, 5, 4, 3, 2 count face value
+                                                        </div>
+                                                        <div class="pl-2 pr-2">
+                                                            all jokers - both the printed jokers and the cards of
+                                                            the same rank as the turned up joker - have a value of
+                                                            zero
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- club rummy end  -->
+                        <!-- ludoclub start  -->
+                        <div class="tab-pane fade" id="ludoclub" role="tabpanel" aria-labelledby="contact-tab"
+                            tabindex="0">
+                            ludoclub
+                        </div>
+                        <!-- ludoclub end   -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer start  -->
+    <app-s-footer></app-s-footer>
+    <!-- footer end  -->
+</div>

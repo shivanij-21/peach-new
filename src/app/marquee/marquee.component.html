@@ -1,0 +1,42 @@
+<div class="wrapper home-new">
+    <div class="upcoming-fixure">
+        <div class="fixure-title">Upcoming Fixtures</div>
+        <div class="fixure-box-container" style="width: calc(100% - 95px);">
+            <marquee>
+                <div class="marquee">
+                    <div class="marquee-inner">
+                        <div class="marquee-content" >
+                            <div class="login-fixture">
+                                <ng-container *ngFor="let sport of sportList ; let index = index">
+                                    <ng-container
+                                        *ngFor="let match of sport.matches | sortByDate:'matchDate';trackBy:trackByEvent">
+                                        <ng-container>
+
+
+                                            <div class="fixure-box">
+                                                <div>
+                                                    <i class="d-icon mr-2 icon-{{sport.id}}"></i>
+                                                    {{match.eventName}}
+                                                </div>
+                                                <div>{{match.time  | date:'yyyy-MM-dd HH:mm:ss' }} </div>
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+                                </ng-container>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </marquee>
+        </div>
+    </div>
+    <div class="news-bar d-none-mobile">
+        <marquee>
+            {{data?.ticker}}
+        </marquee>
+        <div class="news-title"><img src="assets/img/speaker.svg"></div>
+    </div>
+    <app-news></app-news>

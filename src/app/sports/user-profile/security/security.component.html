@@ -1,0 +1,107 @@
+
+<app-header-top></app-header-top>
+<app-highlights></app-highlights>
+
+<div class="main-container">
+    <header class="header header-casino">
+        <!-- <app-header-casino></app-header-casino> -->
+        <app-header></app-header>
+    </header>
+    <div class="logo-box d-none-mobile logo-casino">
+        <div class="logo">
+            <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png"
+                    class="img-fluid" style="    position: absolute;
+                    left: 16px;
+                    top: 1px;
+                    height: 71px;"></a>
+        </div>
+    </div>
+    <div class="center-main-content report-container">
+        <div class="news-bar d-none-desktop" style="background: none;">
+            <app-news></app-news>
+          </div>
+          <div class="upcoming-fixure d-none-desktop">
+            <div class="fixure-title">Upcoming Fixtures</div>
+            <div class="fixure-box-container">
+                <div id="carousel2" data-ride="carousel" data-interval="3000" class="carousel vert slide"> </div>
+            </div>
+          </div>
+
+        <!-- content start  -->
+        <div class="report-box security-auth w-100">
+            <div class="report-title">
+                <div class="report-name">Secure Auth Verification</div>
+            </div>
+            <div>
+                <div class="text-center"><b>Secure Auth Verification Status:</b> <span
+                        class="badge badge-danger">Disabled</span></div>
+                <div class="mt-2 text-center">Please select below option to enable secure auth verification</div>
+                <div class="casino-report-tabs mt-3">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link" id="nav-home-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                aria-selected="true">Enable Using Mobile
+                                App</a></li>
+                        <li class="nav-item"><a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Enable Using
+                                Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Se Auth-->
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <div class="tab-content">
+                        <div class="tab-pane mobile-app active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab" tabindex="0">
+                            <div class="text-center ">
+                                <div class="mt-3">Please enter below auth code in your 'Secure Auth Verification App'.
+                                </div>
+                                <div class="mt-3">
+                                    <div class="verify-code">971343</div>
+                                </div>
+                                <div class="mt-3"><b>If you haven't downloaded,<br>please download 'Secure Auth
+                                        Verification
+                                        App' from
+                                        below
+                                        link.</b></div>
+                                <div class="mt-3">Using this app you will receive auth code during login authentication
+                                </div>
+                                <div class="mt-3">
+                                    <a href="#"><button
+                                            class="btn btn-primary"><i class="fa fa-android"></i> <span>Download on the
+                                                Android</span></button></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                    tabindex="0">
+                    <div class="tab-content">
+                        <div class="tab-pane telegram active">
+                            <div class="text-center"><b>Please enter your login password to continue</b>
+                                <div class="form-group mt-3 secure-password"><input type="password"
+                                        placeholder="Enter your login password" class="form-control"> <button
+                                        class="btn btn-primary ml-2 vt">Get
+                                        Connection
+                                        ID</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Se auth close-->
+
+        </div>
+        <!-- content end  -->
+    </div>
+
+
+    <!-- footer start -->
+    <app-s-footer></app-s-footer>
+    <!-- footer end -->
+</div>

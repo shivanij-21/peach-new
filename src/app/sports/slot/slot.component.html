@@ -1,0 +1,759 @@
+<app-header-top></app-header-top>
+<!-- <div class="test">
+  <app-sidebar></app-sidebar>
+</div> -->
+
+<div class="sidebar-left d-none-mobile">
+  <div class="logo-box d-none-mobile">
+    <div class="logo">
+      <a [routerLink]="['/sports']" class=""
+        ><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+      /></a>
+    </div>
+  </div>
+  <div class="search-box">
+    <div class="form-group">
+      <input type="text" placeholder="Search for Casino" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)"/>
+      <img
+        src="assets/img/search.svg"
+        class="search-icon"
+      />
+    </div>
+  </div>
+
+  <!-- pragmatic sidebar -->
+  <div class="menu-box casino-menu" *ngIf="isopen">
+    <ul class="navbar-nav">
+      <span mode="out-in">
+        <li class="nav-item">
+          <a class="active"><span class="sport-name">New Slots</span></a>
+        </li>
+      </span>
+    </ul>
+
+  </div>
+
+  <!-- Amatic sidebar -->
+  <div class="menu-box casino-menu" *ngIf="isopen1">
+    <ul class="navbar-nav">
+      <span mode="out-in"
+        ><li class="nav-item">
+          <a href="javascript:void(0)" class="active"
+            ><span class="sport-name">New Slots</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class=""
+            ><span class="sport-name">3REEL</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class=""
+            ><span class="sport-name">4REEL</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class=""
+            ><span class="sport-name">5REEL</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class=""
+            ><span class="sport-name">6REEL</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class=""
+            ><span class="sport-name">7REEL</span></a
+          >
+        </li></span
+      >
+    </ul>
+  </div>
+</div>
+
+<div class="main-container">
+  <app-highlights></app-highlights>
+  <div class="center-main-content">
+    <div class="news-bar d-none-desktop" style="background: none;">
+      <app-news></app-news>
+    </div>
+    <div class="upcoming-fixure d-none-desktop">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+        <div
+          id="carousel3"
+          data-ride="carousel"
+          data-interval="3000"
+          class="carousel vert slide"
+        ></div>
+      </div>
+    </div>
+    <div class="report-container">
+      <div class="report-box casino-box">
+        <div class="casino-box-tabs">
+          <div class="casino-tabs-menu">
+            <a href="javascript:void(0)" class="arrow-tabs arrow-left" (click)="scrollLeft()"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tab1" class="nav nav-pills" #widgetsContent>
+              <li class="nav-item" role="presentation" (click)="pragmatic()" *ngFor="let pro of slotfilter" (click)="slotFilter(pro)">
+                <button 
+                  class="nav-link " [ngClass]="pro == slotfilters?'active':'null'"
+                  id="pills-home-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-banner1"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true" >
+                  <span class="span1">{{pro | titlecase}}</span>
+                </button>
+              </li>
+            </ul>
+            <a href="javascript:void(0)" class="arrow-tabs arrow-right" (click)="scrollRight()"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- sidebar moblie view -->
+        <div class="casino-tabs d-none-desktop">
+          <!-- pragmatic sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i ></a>
+          </div>
+
+           <!-- amatic sidebar mobile view -->
+           <div class="casino-tabs-menu" *ngIf="isopen1">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Tomhorn sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen2">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Novomatic_html5 sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen3">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Novomatic_deluxe sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen4">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Netent sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen5">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Habanero sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen6">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Microgaming sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen7">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Microgaming_html5 sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen8">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Igt sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen9">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Igt_html5 sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen10">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 5REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Merkur sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen11">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Egt sidebar mobile view-->
+          <div class="casino-tabs-menu" *ngIf="isopen12">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Aristocrat sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen13">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Igrosoft sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen14">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Fish sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen15">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Platipus sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen16">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+           <!-- Scientific_games sidebar mobile view -->
+           <div class="casino-tabs-menu" *ngIf="isopen17">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Kajot sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen18">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Ainsworth sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen19">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Quickspin sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen20">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Apollo sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen21">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 4REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Fast_games sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen22">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 7REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Habanero1 sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen23">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Apex sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen24">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Wazdan sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen25">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> New Slots </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">6REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+
+          <!-- Netent_html5 sidebar mobile view -->
+          <div class="casino-tabs-menu" *ngIf="isopen26">
+            <a class="arrow-tabs arrow-left"
+              ><i class="fas fa-chevron-left"></i
+            ></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active"> 3REEL </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"> 5REEL </a>
+              </li>
+            </ul>
+            <a class="arrow-tabs arrow-right"
+              ><i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+          <div class="casino-search" [ngClass]="status ? 'open-search' : 'close-search'">
+            <input
+              type="text"
+              placeholder="Search for Casino"
+              class="form-control"
+              style="text-transform: lowercase"
+              [(ngModel)]="searchTerm" (keyup)="search($event)"
+            />
+            <div class="search-icon" (click)="clickEvent()"><i class="fas fa-search"></i></div>
+          </div>
+        </div>
+        <!-- Pragmatic -->
+       <div class="casino-banners">
+          <div class="casino-banner-item" *ngFor="let casino of data | filter:searchKey:'img'">
+            <div style="background-size: cover;background-position: center center; padding-top: 75%;"
+             *ngIf="casino.name !='Evolution Live Dealers' && casino.name != 'Ezugi Live Dealers'"
+              style="cursor: pointer;" >
+             <img [src]="casino.img" >
+          </div>
+            <div class="slot-title">
+              <div>{{casino.name}}</div>
+              <div (click)="opengame(casino.id)" class="btn">Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer start -->
+      <app-s-footer></app-s-footer>
+      <!-- footer end -->
+    </div>
+  </div>
+</div>

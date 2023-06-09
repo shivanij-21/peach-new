@@ -1,0 +1,16 @@
+/* li.nav-item {
+    color: var(--text-sidebar);
+    padding-top: 0;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 0;
+    cursor: pointer;
+} */
+
+.nav-tabs .nav-item{
+    margin-left: 23px;
+}
+li, ul{
+    list-style: disc;
+}

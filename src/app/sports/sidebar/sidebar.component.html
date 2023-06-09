@@ -1,0 +1,391 @@
+<app-highlights></app-highlights>
+<!-- left navbar start -->
+
+<!-- search result start -->
+
+
+<ng-container *ngIf="searchText.length>=3 && searchResult.length!=0">
+    <div class="search-list d-none-mobile">
+        <div class="search-content">
+            <ng-container>
+                <div class="search-event-title">
+                    Search Result
+                </div>
+
+                <a id="result" *ngFor="let match of searchResult" [routerLink]="['/fullmarkets',match.eventId]">
+                    <div class="search-game">
+                        <div class="search-game-name"> {{match.eventName}}</div>
+                        <div class="search-game-time"> {{match.time.split('T')[0]}}
+                            {{match.time.split('T')[1] | date: "HH:mm" }}</div>
+                    </div>
+                </a>
+            </ng-container>
+
+
+
+        </div>
+    </div>
+</ng-container>
+
+
+<!-- <ng-container *ngFor="let match of searchResult">
+    <div class="search-list d-none-mobile" *ngIf="searchText.length>=3 && searchResult.length!=0">
+        <div class="search-title">Search Result</div>
+        <div class="search-content">
+            <ng-container *ngIf="match.sportId == 4">
+                <div class="search-event-title">
+                    Cricket
+                </div>
+
+                <a id="result_{{match.eventId}}_{{match.eventTypeId}}_{{match.competitionId}}"
+                    *ngFor="let match of searchResult" [routerLink]="['/fullmarkets',match.eventId]">
+                    <div class="search-game">
+                        <div class="search-game-name"> {{match.eventName}}</div>
+                        <div class="search-game-time"> {{match.time.split('T')[0]}} {{match.time.split('T')[1]}} </div>
+                    </div>
+                </a>
+            </ng-container>
+            <ng-container *ngIf="match.sportId == 1">
+                <div class="search-event-title">
+                    Soccer
+                </div>
+
+                <a id="result_{{match.eventId}}_{{match.eventTypeId}}_{{match.competitionId}}"
+                    *ngFor="let match of searchResult" [routerLink]="['/fullmarkets',match.eventId]">
+                    <div class="search-game">
+                        <div class="search-game-name"> {{match.eventName}}</div>
+                        <div class="search-game-time"> {{match.time.split('T')[0]}} {{match.time.split('T')[1]}} </div>
+                    </div>
+                </a>
+            </ng-container>
+            <ng-container *ngIf="match.sportId == 2">
+                <div class="search-event-title">
+                    Tennis
+                </div>
+
+                <a id="result_{{match.eventId}}_{{match.eventTypeId}}_{{match.competitionId}}"
+                    *ngFor="let match of searchResult" [routerLink]="['/fullmarkets',match.eventId]">
+                    <div class="search-game">
+                        <div class="search-game-name"> {{match.eventName}}</div>
+                        <div class="search-game-time"> {{match.time.split('T')[0]}} {{match.time.split('T')[1]}} </div>
+                    </div>
+                </a>
+            </ng-container>
+
+
+        </div>
+    </div>
+</ng-container> -->
+
+<!-- search result end -->
+<div class="sidebar-left d-none-mobile">
+    <div class="logo-box d-none-mobile">
+        <div class="logo"><a [routerLink]="['/sports']" class="router-link-exact-active router-link-active"
+                aria-current="page"><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"></a></div>
+    </div>
+    <div class="d-none-desktop tabs-mobile">
+        <ul>
+            <li><a routerLink="/sport" class="router-link-exact-active router-link-active" aria-current="page">
+                    Exchange
+                </a></li>
+            <li><a routerLink="/casino" class="">
+                    Our Casino
+                </a></li>
+            <li><a routerLink="/slot" class="">
+                    Casino + Slot
+                </a></li>
+            <li><a routerLink="/Fantasy" class="">
+                    Fantasy Games
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="search-box">
+        <div class="form-group">
+            <form action="">
+                <input id="searchInput" class="search-input form-control" style="text-transform: lowercase;" type="text"
+                    placeholder="Search" appInputRestriction="noSpecialChars" [(ngModel)]="searchText"
+                    (keyup)="keyupSearch($event)" [ngModelOptions]="{standalone: true}" autocomplete="off">
+                <img src="assets/img/search.svg" class="search-icon">
+            </form>
+        </div>
+    </div>
+    <div class="special-menu">
+        <h5 class="text-yellow pl-2"><u>Racing Sport</u></h5>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown dropright" [ngClass]="{ 'show': isLi1Active }">
+                <a class="dropdown-toggle sport10" (click)="selectLi(7)"><i class="d-icon icon-10"></i> <span
+                        class="sport-name">Horse Racing</span></a>
+                <div id="horsedrop" [ngClass]="{ 'show': isLi1Active }" class="dropdown-menu"
+                    style="position: absolute;inset: 0px auto auto 0px; margin: 0px;">
+                    <h5>All Horse Racing</h5>
+
+                    <div class="horse-list-box">
+                        <ng-container *ngFor="let horse of horseracing">
+                            <a class="" [routerLink]="['/fullmarkets',racetime.eventId,racetime.marketId,racetime.port]"
+                                *ngFor="let racetime of horse.races">
+                                <p class="dropdown-item">
+                                    {{racetime.startTime | date : "HH:mm"}} {{horse.venue}} ({{horse.countryCode}})
+                                </p>
+                            </a>
+                        </ng-container>
+                    </div>
+
+                </div>
+            </li>
+
+            <li class="nav-item dropdown dropright" [ngClass]="{ 'show': isLi2Active }">
+                <a class="dropdown-toggle sport65" (click)="selectLi(4339)"><i class="d-icon icon-65"></i> <span
+                        class="sport-name">GreyHound Racing</span></a>
+                <div id="greyhounddrop" [ngClass]="{ 'show': isLi2Active }" class="dropdown-menu"
+                    style="position: absolute;inset: 0px auto auto 0px; margin: 0px;">
+                    <h5>All GreyHound Racing</h5>
+
+                    <div class="horse-list-box">
+                        <ng-container *ngFor="let horse of horseracing">
+                            <a class="" [routerLink]="['/fullmarkets',racetime.eventId,racetime.marketId,racetime.port]"
+                                *ngFor="let racetime of horse.races">
+                                <p class="dropdown-item">
+                                    {{racetime.startTime | date : "HH:mm"}} {{horse.venue}} ({{horse.countryCode}})
+                                </p>
+                            </a>
+                        </ng-container>
+                    </div>
+
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+
+
+    <div class="menu-box">
+        <h5 class="text-yellow pl-2"><u>All Sport</u></h5>
+        <div class="sports-list-content">
+            <div class="all-menu"><span mode="out-in">
+
+                    <ul class="navbar-nav">
+                        <li data-bs-toggle="" [ngClass]="selectedSport?.id == sport?.id? 'show':'none'"
+                            *ngFor="let sport of sportList; trackBy:trackBySport; let index= index">
+
+                            <a (click)="toursWise(sport)" class="dropdown-item sport{{sport.eventTypeId}}">
+                                <i class="d-icon icon-{{sport.eventTypeId}}"></i>
+                                <span class="sport-name ifTooltip"> {{ sport.sportsName | titlecase}}</span>
+                                <span> ({{ sport.inplayCounts }})</span>
+                            </a>
+
+                            <ul class="dropdown-menu" [ngClass]="selectedSport?.id == sport?.id? 'show':'none'"
+                                [style.display]="selectedSport?.id == sport?.id? 'block':'none' ">
+                                <li class="text-dark" data-bs-toggle="dropdown"
+                                    *ngFor="let tour of tourList; trackBy:trackByTour; let index=index">
+
+                                    <a (click)="matchesWise(tour)" class="dropdown-item dropdown-toggle">
+                                        <span class="ifTooltip">{{ tour.competitionName}}</span>
+                                        <span> </span>
+                                    </a>
+
+                                    <ul class="dropdown-menu"
+                                        [style.display]="selectedTour?.id == tour.id? 'block':'none'">
+                                        <li class="text-dark" data-bs-toggle="dropdown"
+                                            *ngFor="let match of matchList; trackBy:trackByEvent; let index=index">
+                                            <a class="dropdown-item " [routerLinkActive]="'active'"
+                                                [routerLink]="['/fullmarkets',match.eventId]">
+                                                <span class="ifTooltip">{{match.eventName}}</span></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- left navbar end -->
+
+<div class="main-container">
+    <header class="header">
+        <!-- <a [routerLink]="['/sports']" *ngIf="!ishomebutton">
+            <div class="d-none-desktop d-inline-block top-home-icon">
+                <i class="fas fa-home"></i>
+            </div>
+        </a>
+        <div *ngIf="ishomebutton" class="menu-button-mobile" (click)="onclick1()">
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+        </div> -->
+        <div tabindex="-1" class="b-sidebar-outer" id="opensidebarSlide">
+            <div tabindex="0"></div>
+            <div id="sidebarSlide" *ngIf="showmore" class="b-sidebar shadow bg-light text-dark d-none-desktop"
+                style="width: 80%;display: block;">
+                <div class="b-sidebar-body">
+                    <div id="sidebar-left-mo" class="sidebar-left">
+                        <div class="menu-scrolable">
+                            <div class="search-box">
+                                <div class="form-group d-inline-block mb-0">
+                                    <form action="">
+                                        <input id="searchInput" class="search-input form-control"
+                                            style="text-transform: lowercase;" type="text" placeholder="Search"
+                                            appInputRestriction="noSpecialChars" [(ngModel)]="searchText"
+                                            (keyup)="keyupSearch($event)" [ngModelOptions]="{standalone: true}"
+                                            autocomplete="off">
+                                        <img src="assets/img/search.svg" class="search-icon">
+                                    </form>
+                                </div>
+                                <div class="menu-button-mobile d-none-desktop" id="close" (click)="onclick1()">
+                                    <span class="menu-button-bar"></span>
+                                    <span class="menu-button-bar"></span>
+                                    <span class="menu-button-bar"></span>
+                                </div>
+                            </div>
+
+                            <ng-container *ngIf="searchText.length>=3 && searchResult.length!=0">
+                                <div class="search-list d-none-desktop">
+                                    <!-- <div class="search-title">Search Result</div> -->
+                                    <div class="search-content">
+                                        <ng-container>
+                                            <div class="search-event-title">
+                                                Search Result
+                                            </div>
+
+                                            <a id="result" *ngFor="let match of searchResult"
+                                                [routerLink]="['/fullmarkets',match.eventId]">
+                                                <div class="search-game">
+                                                    <div class="search-game-name"> {{match.eventName}}</div>
+                                                    <div class="search-game-time"> {{match.time.split('T')[0]}}
+                                                        {{match.time.split('T')[1] | date: "HH:mm"}}</div>
+                                                </div>
+                                            </a>
+                                        </ng-container>
+
+
+
+                                    </div>
+                                </div>
+                            </ng-container>
+
+                            <div class="special-menu" *ngIf="sidebar">
+                                <h5 class="text-yellow pl-2"><u>Racing Sport</u></h5>
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown dropright" [ngClass]="{ 'show': isLi1Active }">
+                                        <a data-bs-toggle="dropdown" class="dropdown-toggle sport10"
+                                            (click)="selectLi(7)"><i class="d-icon icon-10"></i>
+                                            <span class="sport-name">Horse Racing</span>
+                                        </a>
+                                        <div class="dropdown-menu" [ngClass]="{ 'show': isLi1Active }">
+                                            <h5>All Horse Racing</h5>
+                                            <div class="horse-list-box">
+                                                <ng-container *ngFor="let horse of horseracing">
+                                                    <a class=""
+                                                        [routerLink]="['/fullmarkets',racetime.eventId,racetime.marketId,racetime.port]"
+                                                        *ngFor="let racetime of horse.races">
+                                                        <p class="dropdown-item">
+                                                            {{racetime.startTime | date : "HH:mm"}} {{horse.venue}}
+                                                            ({{horse.countryCode}})
+                                                        </p>
+                                                    </a>
+                                                </ng-container>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown dropright" [ngClass]="{ 'show': isLi2Active }">
+                                        <a data-bs-toggle="dropdown" class="dropdown-toggle sport65"
+                                            (click)="selectLi(4339)"><i class="d-icon icon-65"></i>
+                                            <span class="sport-name">GreyHound Racing</span>
+                                        </a>
+                                        <div class="dropdown-menu" [ngClass]="{ 'show': isLi2Active }">
+                                            <h5>All GreyHound Racing</h5>
+                                            <div class="horse-list-box">
+                                                <ng-container *ngFor="let horse of horseracing">
+                                                    <a class=""
+                                                        [routerLink]="['/fullmarkets',racetime.eventId,racetime.marketId,racetime.port]"
+                                                        *ngFor="let racetime of horse.races">
+                                                        <p class="dropdown-item">
+                                                            {{racetime.startTime | date : "HH:mm"}} {{horse.venue}}
+                                                            ({{horse.countryCode}})
+                                                        </p>
+                                                    </a>
+                                                </ng-container>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-box" *ngIf="sidebar">
+                                <h5 class="text-yellow pl-2"><u>All Sport</u></h5>
+                                <div class="sports-list-content">
+                                    <div class="all-menu">
+                                        <span mode="out-in">
+
+                                            <ul class="navbar-nav">
+                                                <li data-bs-toggle=""
+                                                    [ngClass]="selectedSport?.id == sport?.id? 'show':'none'"
+                                                    *ngFor="let sport of sportList; trackBy:trackBySport; let index= index">
+
+                                                    <a (click)="toursWise(sport)"
+                                                        class="dropdown-item sport{{sport.eventTypeId}}">
+                                                        <i class="d-icon icon-{{sport.eventTypeId}}"></i>
+                                                        <span class="sport-name ifTooltip"> {{ sport.sportsName}}</span>
+                                                        <span> {{ sport?.tournaments?.length}}</span>
+                                                    </a>
+
+                                                    <ul class="dropdown-menu"
+                                                        [ngClass]="selectedSport?.id == sport?.id? 'show':'none'"
+                                                        [style.display]="selectedSport?.id == sport?.id? 'block':'none' ">
+                                                        <li class="text-dark" data-bs-toggle="dropdown"
+                                                            *ngFor="let tour of tourList; trackBy:trackByTour; let index=index">
+
+                                                            <a (click)="matchesWise(tour)"
+                                                                class="dropdown-item dropdown-toggle">
+                                                                <span class="ifTooltip">{{ tour.competitionName}}</span>
+                                                                <span> (2)</span>
+                                                            </a>
+
+                                                            <ul class="dropdown-menu"
+                                                                [style.display]="selectedTour?.id == tour.id? 'block':'none'">
+                                                                <li class="text-dark" data-bs-toggle="dropdown"
+                                                                    *ngFor="let match of matchList; trackBy:trackByEvent; let index=index">
+                                                                    <a class="dropdown-item "
+                                                                        [routerLink]="['/fullmarkets',match.eventId]">
+                                                                        <span
+                                                                            class="ifTooltip">{{match.eventName}}</span></a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div tabindex="0"></div>
+
+        </div>
+
+
+
+        <app-header></app-header>
+        <!-- <app-highlights></app-highlights> -->
+    </header>
+</div>
+
+<!-- Button trigger modal -->
+<!--set btn  Modal -->

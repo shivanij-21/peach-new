@@ -1,0 +1,208 @@
+.form-control {
+    width: 98% !important;
+}
+
+.back1.spark,
+.spark,
+.spark a,
+.spark a {
+    animation: sparkBack 0.6s ease
+}
+
+@keyframes sparkBack {
+    0% {
+        background-color: #72BBEF;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #F8E71C;
+        color: #fff
+    }
+
+    100% {
+        background-color: #72BBEF;
+        color: #1E1E1E
+    }
+
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.back2.spark {
+    animation: sparkBack_2 0.6s ease
+}
+
+@keyframes sparkBack_2 {
+    0% {
+        background-color: #B7D5EB;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #F8E71C;
+        color: #fff
+    }
+
+    100% {
+        background-color: #B7D5EB;
+        color: #1E1E1E
+    }
+}
+
+.back3.spark {
+    animation: sparkBack_3 0.6s ease
+}
+
+@keyframes sparkBack_3 {
+    0% {
+        background-color: #D7E8F4;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #F8E71C;
+        color: #fff
+    }
+
+    100% {
+        background-color: #D7E8F4;
+        color: #1E1E1E
+    }
+}
+
+.lay1.spark,
+.lay-gradient dd.spark a {
+    animation: sparkLay 0.6s ease
+}
+
+@keyframes sparkLay {
+    0% {
+        background-color: #FAA9BA;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #26F1F8;
+        color: #fff
+    }
+
+    100% {
+        background-color: #FAA9BA;
+        color: #1E1E1E
+    }
+}
+
+.lay2.spark {
+    animation: sparkLay_2 0.6s ease
+}
+
+@keyframes sparkLay_2 {
+    0% {
+        background-color: #EFD3D9;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #26F1F8;
+        color: #fff
+    }
+
+    100% {
+        background-color: #EFD3D9;
+        color: #1E1E1E
+    }
+}
+
+.lay3.spark {
+    animation: sparkLay_3 0.6s ease
+}
+
+@keyframes sparkLay_3 {
+    0% {
+        background-color: #F6E6EA;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #26F1F8;
+        color: #fff
+    }
+
+    100% {
+        background-color: #F6E6EA;
+        color: #1E1E1E
+    }
+}
+
+.back1.spark {
+    animation: sparkBook 0.6s ease
+}
+
+@keyframes sparkBook {
+    0% {
+        background-color: #72E3A0;
+        color: #1E1E1E
+    }
+
+    50% {
+        background-color: #F8E71C;
+        color: #fff
+    }
+
+    100% {
+        background-color: #72E3A0;
+        color: #1E1E1E
+    }
+}
+
+
+
+.loading-bet{
+     text-align: center;
+     font-size: 1rem;
+}
+
+.load-center{
+    display: flex;
+    justify-content: center;
+}
+
+.ripple {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 0.3rem solid #979fd0;
+    transform: translate(50%);
+    -webkit-animation: 1s ripple ease-out infinite;
+    animation: 1s ripple ease-out infinite;
+}
+
+@-webkit-keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

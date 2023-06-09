@@ -1,0 +1,33 @@
+
+
+
+<div id="right-sidebar-id" class="right-sidebar home-right-sidebar "> <span></span>
+    <span></span>
+    <div class="home-casiono-icons d-none-mobile">
+        <section tabindex="0" class="hooper is-vertical">
+            <!-- <div class="hooper-list"> -->
+
+                <ngu-carousel class="hooper-list"  #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems"
+                (carouselLoad)="carouselTileLoad($event)">                
+                   
+                <ul class="hooper-track" *nguCarouselDef="let item;">
+                    <ng-container *ngFor="let casino of casinoList">
+                    <li aria-hidden="true" class="hooper-slide" style="height: 150px;">
+                        <a [routerLink]="['/tp',casino.tableId,casino.tableName,casino.oddsUrl?.replace('/d_rate/','')]" 
+                       class="">
+                            <div class="carousal-63" style="background-image: url(&quot;assets/img/Casino/{{casino.tableName}}.jpg&quot;);">
+                            </div>
+                        </a>
+                    </li>
+                </ng-container>
+                </ul>                    
+            </ngu-carousel>
+
+            <!-- <div aria-live="polite" aria-atomic="true" class="hooper-liveregion hooper-sr-only">Item 12 of
+                        16</div> -->
+            <!-- </div> -->
+        </section>
+    </div>
+
+
+</div>

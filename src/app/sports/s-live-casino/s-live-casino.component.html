@@ -1,0 +1,163 @@
+<!-- header top -->
+<app-header-top></app-header-top>
+<!-- end header top -->
+<!-- 
+<div class=" test">
+  <app-sidebar></app-sidebar>
+</div> -->
+
+<!-- left side-bar -->
+<div class="sidebar-left d-none-mobile">
+  <app-casino-sidebar></app-casino-sidebar>
+</div>
+<!-- end left side-bar -->
+
+<!-- <div class=" test">
+    <app-sidebar></app-sidebar>
+</div>  -->
+
+<!-- main-container -->
+<div class="main-container">
+  <app-highlights></app-highlights>
+  <!-- <header class="header">
+
+        <app-upcoming-feature></app-upcoming-feature>
+    </header> -->
+
+  <div class="center-main-content">
+    <div class="news-bar d-none-desktop" style="background: none;margin-top: 6px;">
+      <app-news></app-news>
+    </div>
+
+    <div class="upcoming-fixure d-none-desktop" style="margin-top: 6px;">
+      <div class="fixure-title">Upcoming Fixtures</div>
+      <div class="fixure-box-container">
+        <div id="carousel3" data-ride="carousel" data-interval="3000" class="carousel vert slide"></div>
+      </div>
+    </div>
+
+    
+    <div class="report-container">
+      <div class="report-box casino-box">
+        <div class="casino-box-tabs">
+          <div class="casino-tabs-menu">
+            <a href="javascript:void(0)" class="arrow-tabs arrow-left" (click)="scrollLeft()"><i
+                class="fa fa-chevron-left"></i></a>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" #widgetsContent
+              style="margin-bottom: 0px !important;">
+
+              <li class="nav-item" (click)="casino()">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                  data-bs-target="#pills-banner1" type="button" role="tab" aria-controls="pills-home"
+                  aria-selected="true">
+                  <a href="javascript:void(0)"><img src="assets/img/icon/19.png" />
+                    <span class="span1">Our casino</span></a>
+                </button>
+              </li>
+
+              <li class="nav-item" role="presentation" (click)="supernowaClick(pro.providerCode)"
+                *ngFor="let pro of providerList">
+                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-banner"
+                  type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                  <a href="javascript:void(0)" [ngClass]="pro.providerCode == providerCode?'active':'null'"><img
+                      src="assets/images/supernowa/{{pro.providerCode}}.png">
+                    <span class="span1">{{pro.providerName}}</span></a>
+                </button>
+              </li>
+
+            </ul>
+            <a href="javascript:void(0)" class="arrow-tabs arrow-right" (click)="scrollRight()"><i
+                class="fa fa-chevron-right"></i></a>
+          </div>
+        </div>
+        <!-- <div id="own-casino" class="casino-banners live-casino-banners" *ngIf="!isvalid">
+          <div *ngFor="let casino of SNcasinoList" id="sup">
+            <div class="casino-b" *ngIf="supernowa == casino.providerCode">
+            <div class="casino-banner-item"  routerLink="/casino/{{casino.providerCode}}/{{casino.code}}">
+              <img [src]="casino.thumb">
+            </div>
+              <div class="slot-title">
+                <div>{{casino.name}} </div>
+                <div class="btn" routerLink="/sncasino/{{casino.id}}">Play</div>
+            </div>
+
+          </div>
+        </div>
+        </div> -->
+
+        <!-- mobile view sidebar -->
+        <div class="casino-tabs d-none-desktop">
+
+          <!-- our casino mobile view sidebar -->
+          <div class="casino-tabs-menu" *ngIf="isvalid">
+            <a class="arrow-tabs arrow-left"><i class="fas fa-chevron-left"></i></a>
+            <ul id="tabMobile2" class="nav nav-tabs">
+              <li class="nav-item"><a class="nav-link " id="casino" (click)="openTable('',$event)"   [ngClass]="{'active': tableList.length >16 }" >
+                  All Casino
+                </a></li>
+                <ng-container *ngFor="let data of casinoList | uniqueFilter">
+                  <li class="nav-item" >
+                    <a class="nav-link"  (click)="openTable(data.category,$event)" [ngClass]="{'active': selectedItem == data.category}"><span class="sport-name">{{data.category}}</span></a>
+                  </li>
+                </ng-container>
+             
+
+            </ul> <a class="arrow-tabs arrow-right"><i class="fas fa-chevron-right"></i></a>
+          </div>
+
+          <div class="casino-search" [ngClass]="status ? 'open-search' : 'close-search'">
+            <input type="text" placeholder="Search for Casino" class="form-control" style="text-transform: lowercase;"
+              [(ngModel)]="searchTerm" (keyup)="search($event)">
+            <div class="search-icon" (click)="clickEvent()">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="casino-banners" *ngIf="!isvalid">
+          <div class="casino-banner-item"
+            *ngFor="let casino of SNcasinoList | filter:searchKey:'thumb';let index=index ">
+            <div style="background-size: cover;background-position: center center; padding-top: 75%;"
+              style="cursor: pointer;">
+              <img [src]="casino.thumb">
+            </div>
+            <div class="slot-title">
+              <div>{{casino.name}}</div>
+              <div class="btn" routerLink="/sncasino/{{casino.providerCode}}/{{casino.code}}">Play</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- our casino -->
+        <div id="own-casino" class="casino-banners live-casino-banners casino" *ngIf="isvalid">
+          <ng-container *ngFor="let table of tableList| filter:searchKey:'category'">
+            <ng-container *ngIf="table.category">
+              <div class="casino-banner-item item1">
+                <a [routerLink]="['/tp',table.tableId,table.tableName,table.oddsUrl?.replace('/d_rate/','')]" class="">
+                  <div class="item2" style="
+                background-size: cover;
+                background-position: center center;
+                padding-top: 53.33%;
+                background-image: url('assets/img/Casino/{{table.tableName}}.jpg')
+              "></div>
+                </a>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <!-- our virtual -->
+      </div>
+      <!-- footer start -->
+      <app-s-footer></app-s-footer>
+      <!-- footer end -->
+    </div>
+   
+
+
+
+
+  </div>
+</div>
+<!-- End main-container -->

@@ -1,0 +1,38 @@
+<app-header-top></app-header-top>
+
+
+<app-header></app-header>
+
+
+<div class="logo-box d-none-mobile logo-casino" style="height: 61px !important;">
+
+
+  <div class="logo">
+    <a [routerLink]="['/sports']" class=""><img src="assets/img/logo-cricbuzzer.png" class="img-fluid"
+        style="position: relative; bottom: 12px; height: 71px;">
+    </a>
+  </div>
+</div>
+
+
+
+<div class="main-content d-none-mobile" 
+  style="margin-top: 100px;padding-right: 35px;padding-left: 35px;">
+  <iframe style="OVERFLOW: hidden" frameborder="0" marginwidth="0" scrolling="auto" [src]="supernowaUrl" width="100%"
+    style="background-color: #000;height: 100vh;"></iframe>
+    
+</div>
+<div class="report-container d-none-mobile">
+  <app-s-footer></app-s-footer>
+</div>
+
+
+
+<div class="main-content d-none-desktop"  style="margin-top: 77px;">
+  <app-news></app-news>
+  <iframe [src]="supernowaUrl" style="OVERFLOW: hidden" frameborder="0" marginwidth="0" scrolling="auto"  width="100%"
+    style="background-color: #000;height: 100vh;"></iframe>
+</div>
+<div class="report-container d-none-desktop">
+  <app-s-footer></app-s-footer>
+</div>
